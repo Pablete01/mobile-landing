@@ -23,11 +23,11 @@ export const storeDataConfig = {
 
 export const appData = {
 	/** Your app name (displayed everywhere) */
-	name: "Your App Name",
+	name: "El Mate Company",
 
 	/** Brief app description (hero section + SEO) */
 	description:
-		"Here you can write a brief description of your application. Tell users about its main features and benefits in 1-2 sentences.",
+		"Este sitio se encuentra en construcción! Regrese en breve.",
 
 	/** Path to your app logo/icon */
 	logo: "/assets/favicon.png",

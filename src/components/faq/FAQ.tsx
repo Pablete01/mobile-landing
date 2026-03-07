@@ -11,7 +11,7 @@ const FAQ = ({ items }: { items: FAQType[] }) => (
 			transition={{ duration: 0.4 }}
 			className="mb-6 text-2xl font-semibold text-heading"
 		>
-			FAQ
+			PREGUNTAS
 		</motion.h2>
 		<div className="space-y-4">
 			{items.map((item, index) => (

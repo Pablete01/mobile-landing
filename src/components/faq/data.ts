@@ -22,15 +22,15 @@ import type { FAQ } from "@t/content";
  */
 export const faqs: FAQ[] = [
 	{
-		question: "Question 1?",
-		answer: "Answer to question 1 goes here.",
+		question: "Pregunta 1?",
+		answer: "Respuesta a la pregunta 1 aca.",
 	},
 	{
-		question: "Question 2?",
+		question: "Pregunta 2?",
 		answer: "Answer to question 2 goes here.",
 	},
 	{
-		question: "Question 3?",
+		question: "Pregunta 3?",
 		answer: "Answer to question 3 goes here.",
 	},
 	// Add more questions here...

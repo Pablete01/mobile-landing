@@ -1,8 +1,4 @@
 ---
-/** biome-ignore-all lint/correctness/noUnusedImports: React components with icons are rendered in client:load mode */
-/** biome-ignore-all lint/correctness/noUnusedVariables: Config variables and store data used in component props */
-
----
 import { faqs } from "@faq/data";
 import FAQ from "@faq/FAQ";
 import { features } from "@features/data";
@@ -19,7 +15,6 @@ import { appData as siteConfig } from "../data";
 
 const storeData = await fetchStoreData();
 
-// Estos son los datos de tu PRIMERA APP (App Destacada)
 const appData = {
 	name: storeData.name || siteConfig.name,
 	description: storeData.description || siteConfig.description,
@@ -33,75 +28,72 @@ const appData = {
 	screenshots: storeData.screenshots || screenshots,
 };
 
-// Cambiamos el título general de la página para la empresa
-const title = `El Mate Company - Desarrollo de Aplicaciones Móviles`;
-const pageDescription = `Portfolio de apps nativas desarrolladas por El Mate Company.`;
+const title = "El Mate Company - Desarrollo de Aplicaciones Móviles";
+const pageDescription = "Portfolio de apps nativas desarrolladas por El Mate Company.";
 ---
 
 <Layout title={title} description={pageDescription} appData={appData}>
-  <main class="min-h-screen py-8 container mx-auto px-3 md:px-6">
-    
-    <section class="py-20 flex flex-col items-center text-center border-b dark:border-gray-800 mb-16">
-      <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">El Mate Company</h1>
-      <p class="text-xl text-gray-600 mb-10">
-  Diseño, desarrollo y publicación de aplicaciones móviles nativas.
+<main class="min-h-screen py-8 container mx-auto px-3 md:px-6">
+
+<section class="py-20 flex flex-col items-center text-center border-b dark:border-gray-800 mb-16">
+<h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">El Mate Company</h1>
+<p class="text-xl text-gray-600 mb-10">
+Diseño, desarrollo y publicación de aplicaciones móviles nativas.
 </p>
-      <a href="#mis-apps" class="bg-black dark:bg-white text-white dark:text-black font-bold py-3 px-8 rounded-full hover:scale-105 transition-transform">
-        Ver mis aplicaciones
-      </a>
-    </section>
+<a href="#mis-apps" class="bg-black dark:bg-white text-white dark:text-black font-bold py-3 px-8 rounded-full hover:scale-105 transition-transform">
+Ver mis aplicaciones
+</a>
+</section>
 
-    <section id="mis-apps">
-      <h2 class="text-3xl font-bold text-center mb-16">Aplicaciones Destacadas</h2>
-      
-      <div class="bg-gray-50 dark:bg-gray-900 rounded-[2rem] p-8 mb-24 shadow-sm">
-        <AppHero 
-          title={appData.name} 
-          description={appData.description} 
-          storeLinks={appData.storeLinks} 
-          logo={appData.logo}
-          rating={appData.rating}
-          ageRating={appData.ageRating}
-          version={appData.version}
-          minimumOS={appData.minimumOS}
-          releaseDate={appData.releaseDate}
-          client:load 
-        />
-        <div class="mt-8">
-          <Screenshots images={appData.screenshots} client:load />
-        </div>
-      </div>
-    </section>
+<section id="mis-apps">
+<h2 class="text-3xl font-bold text-center mb-16">Aplicaciones Destacadas</h2>
+<div class="bg-gray-50 dark:bg-gray-900 rounded-[2rem] p-8 mb-24 shadow-sm">
+<AppHero
+title={appData.name}
+description={appData.description}
+storeLinks={appData.storeLinks}
+logo={appData.logo}
+rating={appData.rating}
+ageRating={appData.ageRating}
+version={appData.version}
+minimumOS={appData.minimumOS}
+releaseDate={appData.releaseDate}
+client:load
+/>
+<div class="mt-8">
+<Screenshots images={appData.screenshots} client:load />
+</div>
+</div>
+</section>
 
-    <section id="sobre-mi" class="py-20 mt-16 border-t dark:border-gray-800">
-      <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12">
-        <div class="w-48 h-48 rounded-full overflow-hidden bg-gray-200 shrink-0 shadow-lg">
-          <img src="/tu-foto-perfil.jpg" alt="Mi perfil" class="w-full h-full object-cover" />
-        </div>
-        
-        <div>
-          <h2 class="text-4xl font-bold mb-4">Sobre el desarrollador</h2>
-          <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">
-            Hola, soy el creador detrás de El Mate Company. Me dedico al desarrollo mobile construyendo aplicaciones desde cero hasta su publicación.
-          </p>
-          <div class="flex gap-6 mt-6">
-            <a href="https://linkedin.com/in/tu-perfil" target="_blank" class="font-bold hover:text-blue-500 transition-colors">LinkedIn</a>
-            <a href="https://github.com/tu-usuario" target="_blank" class="font-bold hover:text-blue-500 transition-colors">GitHub</a>
-          </div>
-        </div>
-      </div>
-    </section>
+<section id="sobre-mi" class="py-20 mt-16 border-t dark:border-gray-800">
+<div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12">
+<div class="w-48 h-48 rounded-full overflow-hidden bg-gray-200 shrink-0 shadow-lg">
+<img src="/tu-foto-perfil.jpg" alt="Mi perfil" class="w-full h-full object-cover" />
+</div>
+<div>
+<h2 class="text-4xl font-bold mb-4">Sobre el desarrollador</h2>
+<p class="text-lg text-gray-600 dark:text-gray-400 mb-4">
+Hola, soy el creador detrás de El Mate Company. Me dedico al desarrollo mobile construyendo aplicaciones desde cero hasta su publicación.
+</p>
+<div class="flex gap-6 mt-6">
+<a href="https://linkedin.com/in/tu-perfil" target="_blank" class="font-bold hover:text-blue-500 transition-colors">LinkedIn</a>
+<a href="https://github.com/tu-usuario" target="_blank" class="font-bold hover:text-blue-500 transition-colors">GitHub</a>
+</div>
+</div>
+</div>
+</section>
 
-  </main>
+</main>
 </Layout>
 
 <Lightbox images={appData.screenshots} client:load />
 
 <style is:global>
-  .screenshots-scroll {
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    &::-webkit-scrollbar { display: none; }
-  }
+.screenshots-scroll {
+scroll-behavior: smooth;
+-webkit-overflow-scrolling: touch;
+scrollbar-width: none;
+&::-webkit-scrollbar { display: none; }
+}
 </style>

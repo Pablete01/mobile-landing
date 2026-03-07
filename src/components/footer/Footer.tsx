@@ -57,8 +57,8 @@ const Footer = ({
 				<div className="hidden md:flex flex-col gap-4">
 					<div className="flex items-start justify-between">
 						<div className="flex flex-col gap-3 max-w-3xl">
-							<FooterLogo name={name} logo={logo} />
-							<p className="text-lg text-body leading-relaxed">{description}</p>
+							{/* <FooterLogo name={name} logo={logo} />
+							<p className="text-lg text-body leading-relaxed">{description}</p> */}
 						</div>
 						<ThemeToggle />
 					</div>

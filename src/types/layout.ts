@@ -15,13 +15,15 @@ export interface LayoutWithAppDataProps {
 export interface AppHeroProps {
 	title: string;
 	description: string;
+	fullDescription?: React.ReactNode;
 	logo: string;
 	storeLinks: { apple: string; google: string };
 	rating: { score: number; count: string };
-	ageRating: string;
+	downloads: string;
 	version?: string;
 	minimumOS?: string;
 	releaseDate?: string;
+	technologies?: string[];
 }
 
 export interface FloatingNavbarProps {

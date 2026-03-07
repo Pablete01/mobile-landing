@@ -33,7 +33,7 @@ const Screenshots = ({ images }: { images: ScreenshotsType }) => {
 							transition={{ duration: 0.3 }}
 							className="flex gap-6"
 						>
-							{currentImages.map((image: string, index: number) => (
+							{currentImages?.map((image: string, index: number) => (
 								<motion.button
 									key={`${activeDevice}-${index}`}
 									type="button"

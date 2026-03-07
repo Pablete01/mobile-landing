@@ -1,4 +1,5 @@
 ---
+import { misApps } from "../components/data/apps.js";
 import { faqs } from "@faq/data";
 import FAQ from "@faq/FAQ";
 import { features } from "@features/data";
@@ -12,8 +13,10 @@ import Lightbox from "@screenshots/Lightbox";
 import Screenshots from "@screenshots/Screenshots";
 import { fetchStoreData } from "@utils/fetchStoreData";
 import { appData as siteConfig } from "../data";
+import { descriptions } from "../components/data/appDescriptions";
 
 const storeData = await fetchStoreData();
+
 
 const appData = {
 	name: storeData.name || siteConfig.name,
@@ -21,9 +24,8 @@ const appData = {
 	logo: storeData.logo || siteConfig.logo,
 	storeLinks: storeData.storeLinks || siteConfig.storeLinks,
 	rating: storeData.rating || siteConfig.rating,
-	ageRating: storeData.ageRating || siteConfig.ageRating,
+	downloads: storeData.downloads || siteConfig.downloads,
 	version: storeData.version || siteConfig.version,
-	minimumOS: storeData.minimumOS || siteConfig.minimumOS,
 	releaseDate: storeData.releaseDate || siteConfig.releaseDate,
 	screenshots: storeData.screenshots || screenshots,
 };
@@ -46,30 +48,41 @@ Ver mis aplicaciones
 </section>
 
 <section id="mis-apps">
-<h2 class="text-3xl font-bold text-center mb-16">Aplicaciones Destacadas</h2>
-<div class="bg-gray-50 dark:bg-gray-900 rounded-[2rem] p-8 mb-24 shadow-sm">
-<AppHero
-title={appData.name}
-description={appData.description}
-storeLinks={appData.storeLinks}
-logo={appData.logo}
-rating={appData.rating}
-ageRating={appData.ageRating}
-version={appData.version}
-minimumOS={appData.minimumOS}
-releaseDate={appData.releaseDate}
-client:load
-/>
-<div class="mt-8">
-<Screenshots images={appData.screenshots} client:load />
-</div>
-</div>
+  {misApps && Array.isArray(misApps) ? (
+    misApps.map((app) => {
+      const data = app.isFeatured ? appData : app;
+      const extraInfo = descriptions[app.id];
+      
+      return (
+        <div class="bg-gray-50 dark:bg-gray-900 rounded-[2rem] p-8 mb-16 border border-gray-100 dark:border-gray-800 shadow-sm" key={app.id}>
+          <AppHero 
+             {...data} 
+             fullDescription={extraInfo}
+             client:load
+          />
+          
+        </div>
+      );
+    })
+  ) : (
+    <div class="text-center p-20">
+      <p>No se encontraron aplicaciones.</p>
+    </div>
+  )}
 </section>
 
 <section id="sobre-mi" class="py-20 mt-16 border-t dark:border-gray-800">
 <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12">
-<div class="w-48 h-48 rounded-full overflow-hidden bg-gray-200 shrink-0 shadow-lg">
-<img src="/perfil.png" alt="Mi perfil" class="w-full h-full object-cover" />
+<div class="relative w-40 h-40 shrink-0">
+    <div class="absolute inset-0 rounded-full border-4 border-blue-500 animate-pulse"></div>
+    
+    <div class="w-40 h-40 rounded-full overflow-hidden bg-gray-200 shrink-0 shadow-lg border-5 border-white dark:border-gray-800">
+<img 
+    src="/perfil.png" 
+    alt="Mi perfil" 
+    class="w-full h-full object-cover" 
+    style="object-position: center 75%;" 
+/></div>
 </div>
 <div>
 <h2 class="text-4xl font-bold mb-4">Sobre el desarrollador</h2>

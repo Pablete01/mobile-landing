@@ -8,11 +8,11 @@ import { useEffect, useState } from "react";
 const FloatingNavbar = ({ logo, title, storeLinks, socialLinks }: FloatingNavbarProps) => {
     const [isVisible, setIsVisible] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => setIsVisible(window.scrollY > 300);
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    // useEffect(() => {
+    //     const handleScroll = () => setIsVisible(window.scrollY > 300);
+    //     window.addEventListener("scroll", handleScroll);
+    //     return () => window.removeEventListener("scroll", handleScroll);
+    // }, []);
 
     return (
         <AnimatePresence>

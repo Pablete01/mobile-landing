@@ -22,9 +22,10 @@ export interface FloatingNavbar {
 export interface AppInfoProps {
 	title: string;
 	description: string;
+	fullDescription: React.ReactNode;
 	logo: string;
 	rating: { score: number; count: string };
-	ageRating: string;
+	downloads: string;
 	version?: string;
 	minimumOS?: string;
 	releaseDate?: string;

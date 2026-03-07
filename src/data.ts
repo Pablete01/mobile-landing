@@ -17,28 +17,29 @@ export const storeDataConfig = {
 	fetchRealData: false,
 	
 	/** Numeric App ID (without "id" prefix) - find in App Store URL */
-	appStoreAppId: 686449807,
+	appStoreAppId: 6738704543,
 } as const;
 
 
 export const appData = {
 	/** Your app name (displayed everywhere) */
-	name: "El Mate Company",
+	name: "Donde cargAR",
 
 	/** Brief app description (hero section + SEO) */
 	description:
-		"Este sitio se encuentra en construcción! Regrese en breve.",
+		"Consulta los precios actualizados de combustibles en Argentina y ahorra en cada carga.",
+	fullDescription: "",
 
 	/** Path to your app logo/icon */
-	logo: "/assets/favicon.png",
+	logo: "/assets/dondecargar/iconoDondeCargar.png",
 
 	/** SEO keywords for search visibility */
-	keywords: ["mobile app", "landing page", "astro", "react", "typescript"],
+	keywords: ["precios combustible", "nafta argentina", "ahorrar combustible", "donde cargar", "ypf shell precios"],
 
 	/** App store download links */
 	storeLinks: {
-		apple: "#",
-		google: "#",
+		apple: "https://apps.apple.com/app/id6738704543",
+		google: "https://play.google.com/store/apps/details?id=com.app.dondecargar",
 	},
 
 	/** App rating and reviews */
@@ -48,17 +49,17 @@ export const appData = {
 	},
 
 	/** Age rating (e.g., 4+, 12+, 17+) */
-	ageRating: "4+",
+	downloads: "4+",
 
 	/** App version */
 	version: "1.0.0",
-
-	/** Minimum iOS version required */
-	minimumOS: "13.0",
 
 	/** Last update date */
 	releaseDate: "Jan 10, 2026",
 
 	/** Social media links */
 	socialLinks,
+
+	technologies: ["React Native", "Firebase", "TypeScript", "Tailwind CSS", "Maps API"],
+
 } as const;

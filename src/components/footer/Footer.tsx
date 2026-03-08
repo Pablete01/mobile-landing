@@ -35,7 +35,7 @@ const Footer = ({
 				{/* Mobile Layout */}
 				<div className="flex flex-col gap-6 md:hidden">
 					<div className="flex items-center justify-between">
-						<FooterLogo name={name} logo={logo} />
+						{/* <FooterLogo name={name} logo={logo} /> */}
 						<ThemeToggle />
 					</div>
 

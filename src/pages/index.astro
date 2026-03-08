@@ -1,112 +1,83 @@
 ---
 import { misApps } from "../components/data/apps.js";
-import { faqs } from "@faq/data";
-import FAQ from "@faq/FAQ";
-import { features } from "@features/data";
-import Features from "@features/Features";
-import AppHero from "@hero/AppHero";
 import Layout from "@layouts/Layout.astro";
-import { reviews } from "@reviews/data";
-import Reviews from "@reviews/Reviews";
-import { screenshots } from "@screenshots/data";
+import AppHero from "@hero/AppHero";
 import Lightbox from "@screenshots/Lightbox";
-import Screenshots from "@screenshots/Screenshots";
-import { fetchStoreData } from "@utils/fetchStoreData";
-import { appData as siteConfig } from "../data";
+import { screenshots } from "@screenshots/data";
 import { descriptions } from "../components/data/appDescriptions";
 
-const storeData = await fetchStoreData();
-
-
-const appData = {
-	name: storeData.name || siteConfig.name,
-	description: storeData.description || siteConfig.description,
-	logo: storeData.logo || siteConfig.logo,
-	storeLinks: storeData.storeLinks || siteConfig.storeLinks,
-	rating: storeData.rating || siteConfig.rating,
-	downloads: storeData.downloads || siteConfig.downloads,
-	version: storeData.version || siteConfig.version,
-	releaseDate: storeData.releaseDate || siteConfig.releaseDate,
-	screenshots: storeData.screenshots || screenshots,
+// 1. ELIMINAMOS fetchStoreData porque cargás todo manual.
+// 2. Configuramos siteConfig con tus datos reales del CV[cite: 1, 2].
+const siteConfig = {
+    name: "El Mate Company",
+    description: "Desarrollador Mobile Full Stack. +220.000 descargas.",
+    logo: "/perfil.png",
+    socialLinks: [
+        { name: "LinkedIn", href: "https://www.linkedin.com/in/pablo-andres-cavallero-163834293/" },
+        { name: "GitHub", href: "https://github.com/pablete01" }
+    ]
 };
 
 const title = "El Mate Company - Desarrollo de Aplicaciones Móviles";
-const pageDescription = "Portfolio de apps nativas desarrolladas por El Mate Company.";
+const pageDescription = "Portfolio de apps nativas desarrolladas por Pablo Cavallero.";
 ---
 
-<Layout title={title} description={pageDescription} appData={appData}>
+<Layout title={title} description={pageDescription} appData={siteConfig}>
 <main class="min-h-screen py-8 container mx-auto px-3 md:px-6">
 
-<section class="py-20 flex flex-col items-center text-center border-b dark:border-gray-800 mb-16">
-<h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">El Mate Company</h1>
-<p class="text-xl text-gray-600 mb-10">
-Diseño, desarrollo y publicación de aplicaciones móviles nativas.
-</p>
-<a href="#mis-apps" class="bg-black dark:bg-white text-white dark:text-black font-bold py-3 px-8 rounded-full hover:scale-105 transition-transform">
-Ver mis aplicaciones
-</a>
-</section>
+    <section class="py-20 flex flex-col items-center text-center border-b dark:border-gray-800 mb-16">
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">{siteConfig.name}</h1>
+        <p class="text-xl text-gray-600 mb-10">
+            Diseño, desarrollo y publicación de aplicaciones móviles nativas.
+        </p>
+        <a href="#mis-apps" class="bg-black dark:bg-white text-white dark:text-black font-bold py-3 px-8 rounded-full hover:scale-105 transition-transform">
+            Ver mis aplicaciones
+        </a>
+    </section>
 
-<section id="mis-apps">
-  {misApps && Array.isArray(misApps) ? (
-    misApps.map((app) => {
-      const data = app.isFeatured ? appData : app;
-      const extraInfo = descriptions[app.id];
-      
-      return (
-        <div class="bg-gray-50 dark:bg-gray-900 rounded-[2rem] p-8 mb-16 border border-gray-100 dark:border-gray-800 shadow-sm" key={app.id}>
-          <AppHero 
-             {...data} 
-             fullDescription={extraInfo}
-             client:load
-          />
-          
+    <section id="mis-apps">
+      {misApps.map((app) => {
+        const extraInfo = descriptions[app.id];
+        
+        return (
+          <div class="bg-gray-50 dark:bg-gray-900 rounded-[2rem] p-8 mb-16 border border-gray-100 dark:border-gray-800 shadow-sm" key={app.id}>
+            <AppHero 
+               {...app} 
+               fullDescription={extraInfo}
+               client:load
+            />
+          </div>
+        );
+      })}
+    </section>
+
+    <section id="sobre-mi" class="py-20 mt-16 border-t dark:border-gray-800">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="relative w-40 h-40 shrink-0">
+                <div class="absolute inset-0 rounded-full border-4 border-blue-500 animate-pulse"></div>
+                <div class="w-40 h-40 rounded-full overflow-hidden bg-gray-200 shrink-0 shadow-lg border-4 border-white dark:border-gray-800">
+                    <img 
+                        src={siteConfig.logo} 
+                        alt="Mi perfil" 
+                        class="w-full h-full object-cover" 
+                        style="object-position: center 75%;" 
+                    />
+                </div>
+            </div>
+            <div>
+                <h2 class="text-4xl font-bold mb-4">Sobre el desarrollador</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">
+                    Hola, soy Pablo Cavallero[cite: 1], el desarrollador detrás de El Mate Company. Me especializo en soluciones móviles nativas con +220.000 descargas[cite: 4, 14].
+                </p>
+                <div class="flex gap-6 mt-6">
+                    <a href={siteConfig.socialLinks[0].href} target="_blank" class="font-bold hover:text-blue-500 transition-colors">LinkedIn</a>
+                    <a href={siteConfig.socialLinks[1].href} target="_blank" class="font-bold hover:text-blue-500 transition-colors">GitHub</a>
+                </div>
+            </div>
         </div>
-      );
-    })
-  ) : (
-    <div class="text-center p-20">
-      <p>No se encontraron aplicaciones.</p>
-    </div>
-  )}
-</section>
-
-<section id="sobre-mi" class="py-20 mt-16 border-t dark:border-gray-800">
-<div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12">
-<div class="relative w-40 h-40 shrink-0">
-    <div class="absolute inset-0 rounded-full border-4 border-blue-500 animate-pulse"></div>
-    
-    <div class="w-40 h-40 rounded-full overflow-hidden bg-gray-200 shrink-0 shadow-lg border-5 border-white dark:border-gray-800">
-<img 
-    src="/perfil.png" 
-    alt="Mi perfil" 
-    class="w-full h-full object-cover" 
-    style="object-position: center 75%;" 
-/></div>
-</div>
-<div>
-<h2 class="text-4xl font-bold mb-4">Sobre el desarrollador</h2>
-<p class="text-lg text-gray-600 dark:text-gray-400 mb-4">
-Hola, soy Pablo Cavallero, el desarrollador detrás de El Mate Company. Me especializo en crear soluciones móviles nativas, cuidando cada detalle desde la idea inicial hasta que la app llega a tus manos. Mi objetivo es unir funcionalidad y diseño en cada línea de código.
-</p>
-<div class="flex gap-6 mt-6">
-<a href="https://www.linkedin.com/in/pablo-andres-cavallero-163834293/" target="_blank" class="font-bold hover:text-blue-500 transition-colors">LinkedIn</a>
-<a href="https://github.com/pablete01" target="_blank" class="font-bold hover:text-blue-500 transition-colors">GitHub</a>
-</div>
-</div>
-</div>
-</section>
+    </section>
 
 </main>
 </Layout>
 
-<Lightbox images={appData.screenshots} client:load />
-
-<style is:global>
-.screenshots-scroll {
-scroll-behavior: smooth;
--webkit-overflow-scrolling: touch;
-scrollbar-width: none;
-&::-webkit-scrollbar { display: none; }
-}
-</style>
+<Lightbox images={screenshots} client:load />

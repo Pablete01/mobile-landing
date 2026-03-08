@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { memo } from "react";
 import TechStack from "./TechStack";
 
-const AppHero = ({ title, description, fullDescription, storeLinks, logo, rating, downloads, version, minimumOS, releaseDate, technologies }: AppHeroProps) => (
+const AppHero = ({ name, description, fullDescription, storeLinks, logo, rating, downloads, version, minimumOS, releaseDate, technologies }: AppHeroProps) => (
 	<motion.div
 	    layout
 		initial={{ opacity: 0, y: 20 }}
@@ -14,7 +14,7 @@ const AppHero = ({ title, description, fullDescription, storeLinks, logo, rating
 	<div className="mb-16 flex flex-col md:flex-row gap-8 items-start"
 	>
 		<AppInfo
-			title={title}
+			name={name}
 			description={description}
 			fullDescription={fullDescription || "No llegó la descripción"}
 			logo={logo}

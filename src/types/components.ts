@@ -1,7 +1,7 @@
 import type { SocialLink } from "./content";
 
 export interface AppHero {
-	title: string;
+	name: string;
 	description: string;
 	logo: string;
 	storeLinks: { apple: string; google: string };
@@ -20,7 +20,7 @@ export interface FloatingNavbar {
 }
 
 export interface AppInfoProps {
-	title: string;
+	name: string;
 	description: string;
 	fullDescription: React.ReactNode;
 	logo: string;

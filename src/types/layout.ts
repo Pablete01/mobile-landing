@@ -2,7 +2,7 @@ import type { SocialLink } from "./content";
 import type { StoreData } from "./store";
 
 export interface LayoutWithAppDataProps {
-	title: string;
+	name: string;
 	description?: string;
 	appData?: Partial<StoreData> & {
 		name: string;
@@ -13,7 +13,7 @@ export interface LayoutWithAppDataProps {
 }
 
 export interface AppHeroProps {
-	title: string;
+	name: string;
 	description: string;
 	fullDescription?: React.ReactNode;
 	logo: string;

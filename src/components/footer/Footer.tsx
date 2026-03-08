@@ -34,25 +34,30 @@ const Footer = ({
 
 				{/* Mobile Layout */}
 				<div className="flex flex-col gap-6 md:hidden">
-					<div className="flex items-center justify-between">
+					{/* Contenedor del ThemeToggle */}
+					<div className="flex items-center justify-end">
 						{/* <FooterLogo name={name} logo={logo} /> */}
 						<ThemeToggle />
 					</div>
 
-					<p className="text-lg text-body leading-relaxed">{description}</p>
+					{/* Ocultamos la descripción */}
+					{/* <p className="text-lg text-body leading-relaxed">{description}</p> */}
 
-					<div className="flex items-center justify-between">
-						<div className="flex gap-3">
-							<SocialLinks items={appData.socialLinks} />
-						</div>
-						<FooterLegal />
-					</div>
+					{/* Ocultamos Redes Sociales y Links Legales */}
+					{/* <div className="flex items-center justify-between">
+        <div className="flex gap-3">
+            <SocialLinks items={appData.socialLinks} />
+        </div>
+        <FooterLegal />
+    </div> 
+    */}
 
-					<div className="text-center">
-						<div className="text-base text-body">{copyrightText}</div>
-					</div>
+					{/* Ocultamos el Copyright */}
+					{/* <div className="text-center">
+        <div className="text-base text-body">{copyrightText}</div>
+    </div> 
+    */}
 				</div>
-
 				{/* Desktop Layout */}
 				<div className="hidden md:flex flex-col gap-4">
 					<div className="flex items-start justify-between">
@@ -63,7 +68,7 @@ const Footer = ({
 						<ThemeToggle />
 					</div>
 
-					<div className="flex items-center justify-between pt-6 border-t border-gray-200/30 dark:border-gray-700/30">
+					{/* <div className="flex items-center justify-between pt-6 border-t border-gray-200/30 dark:border-gray-700/30">
 						<div className="flex items-center gap-6">
 							<div className="flex gap-3">
 								<SocialLinks items={appData.socialLinks} />
@@ -71,7 +76,7 @@ const Footer = ({
 							<div className="text-base text-body">{copyrightText}</div>
 						</div>
 						<FooterLegal />
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</motion.footer>

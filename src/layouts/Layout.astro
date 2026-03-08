@@ -8,6 +8,7 @@ import FloatingNavbar from "@ui/navigation/FloatingNavbar";
 import BackToTop from "@ui/shared/BackToTop";
 import { appData as defaultAppData } from "../data";
 
+
 interface Props extends LayoutWithAppDataProps {}
 
 const { title, description, appData } = Astro.props;
@@ -55,6 +56,9 @@ const canonicalURL = Astro.site
       
       !localStorage.getItem('theme') && localStorage.setItem('theme', 'system');
     </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800;900&display=swap" rel="stylesheet">
   </head>
 
   <!-- TODO: Prevent page scroll from jumping to the top on rapid F5 refreshes -->
@@ -71,6 +75,9 @@ const canonicalURL = Astro.site
 
 
 <style is:global>
+  :root {
+    font-family: 'Montserrat', sans-serif;
+  }
   html.theme-switching *,
   html.theme-switching {
     transition: none !important;

@@ -124,4 +124,5 @@ export const descriptions = {
       <li>Implementación de ofuscación avanzada de código (ProGuard/R8) para proteger la integridad de los datos y configuración de monetización ética con <strong>AdMob</strong>.</li>
     </ul>
   `,
+
 };

@@ -1,0 +1,48 @@
+---
+const { name, description, progress, status, currentTask, stack, emoji } = Astro.props;
+---
+
+<div class="bg-white dark:bg-gray-900 rounded-[2rem] p-8 md:p-10 border-2 border-dashed border-gray-200 dark:border-gray-800 shadow-sm relative overflow-hidden text-left mb-8 group hover:border-blue-300 dark:hover:border-blue-900/50 transition-colors">
+    
+    <div class="absolute top-0 right-0 bg-blue-500 dark:bg-blue-600 text-white text-[10px] md:text-xs font-bold px-4 py-1.5 rounded-bl-xl uppercase tracking-wider shadow-sm">
+        {status}
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-8 items-start">
+        <div class="flex-shrink-0">
+            <div class="w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-gray-50 dark:bg-white/[0.02] flex items-center justify-center border border-gray-100 dark:border-white/5 group-hover:scale-105 transition-transform duration-300">
+                <span class="text-4xl md:text-5xl">{emoji}</span>
+            </div>
+        </div>
+
+        <div class="flex flex-1 flex-col w-full">
+            <h3 class="text-3xl font-bold text-heading mb-4">{name}</h3>
+            
+            <div 
+                class="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed max-w-3xl"
+                set:html={description} 
+            />
+
+            <div class="mb-6 w-full max-w-md">
+                <div class="flex justify-between text-sm font-bold mb-2">
+                    <span class="text-gray-700 dark:text-gray-300">Progreso del Desarrollo</span>
+                    <span class="text-blue-500">{progress}%</span>
+                </div>
+                <div class="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-2.5 overflow-hidden">
+                    <div class="bg-blue-500 h-2.5 rounded-full relative" style={`width: ${progress}%`}>
+                        <div class="absolute top-0 left-0 bottom-0 right-0 bg-white/20 animate-pulse"></div>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-500 mt-2">Actualmente trabajando en: {currentTask}</p>
+            </div>
+
+            <div class="flex flex-wrap gap-2 mt-auto">
+                {stack.map((tech) => (
+                    <span class="px-3 py-1.5 text-xs font-bold text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-white/[0.05] border border-gray-200 dark:border-white/10 rounded-lg">
+                        {tech}
+                    </span>
+                ))}
+            </div>
+        </div>
+    </div>
+</div>

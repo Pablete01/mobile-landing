@@ -9,7 +9,15 @@ import BackToTop from "@ui/shared/BackToTop";
 import { appData as defaultAppData } from "../data";
 
 
-interface Props extends LayoutWithAppDataProps {}
+//interface Props extends LayoutWithAppDataProps {}
+
+// Definimos las Props de forma explícita y sencilla
+interface Props {
+  title: string;
+  description?: string;
+  appData?: any;
+}
+
 
 const { title, description, appData } = Astro.props;
 const navData = appData || defaultAppData;

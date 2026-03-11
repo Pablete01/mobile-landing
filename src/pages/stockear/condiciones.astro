@@ -1,0 +1,70 @@
+---
+import Layout from "../../layouts/Layout.astro";
+// Importamos los datos para que el Navbar y Footer tengan el logo y links
+import { appData as siteData } from "../../data"; 
+---
+
+<Layout 
+  title="Términos y Condiciones | Stockear" 
+  description="Términos y condiciones de uso de la aplicación Stockear por El Mate Company"
+  appData={siteData}
+>
+    <div class="max-w-4xl mx-auto px-4 py-20 mt-16">
+        <h1 class="text-4xl md:text-5xl font-black tracking-tighter mb-8 text-gray-900 dark:text-white uppercase">
+            Términos y Condiciones de Uso
+        </h1>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-8 font-semibold">
+            Última actualización: 11 de Marzo de 2026
+        </p>
+        
+        <div class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed space-y-6">
+            <p>
+                Al descargar y utilizar <strong>Stockear</strong>, aceptas los siguientes términos y condiciones. Esta aplicación es propiedad y está operada por Pablo Cavallero, un desarrollador idependiente que opera bajo el nombre comercial de desarrollada por <strong>El Mate Company</strong>. Si no estás de acuerdo con ellos, te rogamos que no utilices la aplicación.
+            </p>
+
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">1. Descripción del Servicio</h2>
+            <p>
+                Stockear es una herramienta de gestión de inventario que permite a los usuarios registrar, actualizar y consultar el stock de productos mediante el escaneo de códigos de barras y comandos de voz. 
+            </p>
+
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">2. Versión Gratuita y Compras Integradas (PRO)</h2>
+            <ul class="list-disc pl-6 space-y-2">
+                <li><strong>Versión Freemium:</strong> La aplicación se puede descargar y utilizar de forma gratuita con un límite máximo de 50 productos registrados en la base de datos.</li>
+                <li><strong>Versión PRO (Lifetime):</strong> Los usuarios pueden optar por un pago único a través de las tiendas de aplicaciones para desbloquear el límite de productos de forma vitalicia.</li>
+                <li><strong>Procesamiento y Reembolsos:</strong> Los pagos y las políticas de reembolso son gestionados íntegramente por la tienda de aplicaciones correspondiente (ej. Google Play Store) y validados mediante RevenueCat. El Mate Company no procesa pagos directos ni puede emitir reembolsos por fuera de las políticas de dichas plataformas.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">3. Limitación de Responsabilidad (Pérdida de Datos)</h2>
+            <p>
+                <strong>Importante:</strong> Stockear guarda la información de tu inventario localmente en la memoria de tu dispositivo telefónico. 
+            </p>
+            <p>
+                El Mate Company <strong>no se hace responsable</strong> bajo ninguna circunstancia por la pérdida de datos de inventario, lucro cesante, o daños derivados causados por la desinstalación de la app, daño físico del dispositivo, robo, pérdida del teléfono celular o fallos en el sistema operativo. Es responsabilidad exclusiva del usuario utilizar la herramienta de exportación a Google Sheets para mantener copias de seguridad de su información de forma regular.
+            </p>
+
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">4. Uso Adecuado</h2>
+            <p>
+                Te comprometes a utilizar la aplicación exclusivamente para fines lícitos. Queda estrictamente prohibido intentar vulnerar la seguridad de la aplicación, realizar ingeniería inversa, o intentar saltar las barreras de validación de pago mediante métodos no autorizados.
+            </p>
+
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">5. Modificaciones</h2>
+            <p>
+                El Mate Company se reserva el derecho de modificar estos términos en cualquier momento, así como las características, precios y funcionalidades de la aplicación. Los cambios significativos serán notificados a través de las actualizaciones de la tienda de aplicaciones o dentro de la misma app.
+            </p>
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">6. Propiedad Intelectual</h2>
+            <p>
+                Todos los derechos, títulos e intereses sobre la aplicación Stockear (incluyendo su código fuente, diseño, logotipos, algoritmos de reconocimiento de voz y escaneo) son propiedad exclusiva de El Mate Company. El uso de la aplicación no te otorga ningún derecho de propiedad intelectual sobre la misma.
+            </p>
+
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">7. Legislación Aplicable y Jurisdicción</h2>
+            <p>
+                Estos términos se regirán e interpretarán de acuerdo con las leyes de España. Cualquier disputa que surja en relación con estos términos, la aplicación o los servicios de El Mate Company estará sujeta a la jurisdicción exclusiva de los tribunales competentes de dicha jurisdicción.
+            </p>
+
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">8. Contacto</h2>
+            <p>
+                Si tienes alguna duda, reclamo o sugerencia sobre estos Términos y Condiciones, por favor contáctanos a través de nuestro sitio web oficial en <a href="https://www.elmatecompany.com" class="text-blue-600 dark:text-blue-400 hover:underline">www.elmatecompany.com</a>.
+            </p>
+        </div>
+    </div>
+</Layout>

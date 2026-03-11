@@ -23,43 +23,43 @@ export const storeDataConfig = {
 
 export const appData = {
 	/** Your app name (displayed everywhere) */
-	name: "Donde cargAR",
+	name: "El Mate Company",
 
 	/** Brief app description (hero section + SEO) */
 	description:
-		"Consulta los precios actualizados de combustibles en Argentina y ahorra en cada carga.",
+		"",
 	fullDescription: "",
 
 	/** Path to your app logo/icon */
-	logo: "/assets/dondecargar/iconoDondeCargar.png",
+	logo: "/assets/logo_matecompany.webp",
 
 	/** SEO keywords for search visibility */
 	keywords: ["precios combustible", "nafta argentina", "ahorrar combustible", "donde cargar", "ypf shell precios"],
 
 	/** App store download links */
 	storeLinks: {
-		apple: "https://apps.apple.com/app/id6738704543",
-		google: "https://play.google.com/store/apps/details?id=com.app.dondecargar",
+		apple: "",
+		google: "",
 	},
 
 	/** App rating and reviews */
 	rating: {
-		score: 4.8,
-		count: "1.2K",
+		score: 0.0,
+		count: "",
 	},
 
 	/** Age rating (e.g., 4+, 12+, 17+) */
-	downloads: "4+",
+	downloads: "",
 
 	/** App version */
-	version: "1.0.0",
+	version: "",
 
 	/** Last update date */
-	releaseDate: "Jan 10, 2026",
+	releaseDate: "",
 
 	/** Social media links */
 	socialLinks,
 
-	technologies: ["React Native", "Firebase", "TypeScript", "Tailwind CSS", "Maps API"],
+	technologies: [],
 
 } as const;

@@ -1,0 +1,262 @@
+---
+// Código del servidor (Frontmatter)
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Matech - El primer mate inteligente</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <style>
+      /* Estilos generales y limpios (Diseño Claro) */
+      :root {
+        --primary-color: #2e7d32; /* Verde mate */
+        --bg-color: #fafafa;
+        --text-color: #333;
+      }
+      
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+
+        /* 1. Color base de la página (un crema muy claro o casi blanco) */
+ /* background-color: #faf8f5;*/
+
+  /* 2. Carga tu imagen de hojas de mate sutiles */
+ /*  background-image: url('/img/fondo-mate.png');*/
+
+  /* 3. ¡Esta es la magia! Hace que la imagen se repita (tile) */
+ /*  background-repeat: repeat;*/
+
+  /* Opcional: Centra el inicio de la imagen */
+ /*  background-position: center top;*/
+
+  /* Opcional: Fija el fondo para que no se mueva al hacer scroll (efecto "marca de agua") */
+ /*  background-attachment: fixed; */
+      }
+
+      /* Contenedor central para que no se estire al infinito en pantallas gigantes */
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* 1. SECCIÓN HERO */
+      .hero {
+        text-align: center;
+        padding: 80px 20px 40px;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+        color: #111;
+        letter-spacing: -1px;
+      }
+      .hero p {
+        font-size: 1.2rem;
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* 2. SECCIÓN SOBRE EL PROYECTO */
+      .about-project {
+        background: white;
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        margin-bottom: 60px;
+        text-align: center;
+      }
+      .about-project h2 { margin-top: 0; }
+
+      /* 3. SECCIÓN DEL MAPA */
+      .map-section {
+        margin-bottom: 60px;
+      }
+      .map-section h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      #mapa-matech {
+        height: 500px; /* Un poco más bajo para que no ocupe toda la pantalla */
+        width: 100%;
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        z-index: 1; /* Para evitar problemas con otros elementos */
+      }
+
+      /* 4. SECCIÓN DE GALERÍA */
+      .gallery-section {
+        margin-bottom: 80px;
+      }
+      .gallery-section h2 {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      /* EL CONTENEDOR: Las pone lado a lado en PC, y las apila en celular automáticamente */
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+        align-items: start; /* Si una foto es un poco más alta que otra, no deforma a las demás */
+      }
+
+      /* LA FOTO: Ocupa su columna entera y muestra la altura completa */
+      .gallery-photo {
+        width: 100%;
+        height: auto; /* Muestra la foto entera sin recortar nada */
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .gallery-photo:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      }
+      .photo-placeholder:hover {
+        transform: scale(1.02);
+      }
+
+      /* Pie de página */
+      footer {
+        text-align: center;
+        padding: 40px 20px;
+        color: #888;
+        border-top: 1px solid #eaeaea;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="hero">
+      <h1>Matech</h1>
+      <p>El mate inteligente IoT que conecta la tradición del mate con la telemetría en la nube.</p>
+    </header>
+
+    <div class="container">
+      
+      <section class="about-project">
+        <h2>¿Qué hay bajo el capó?</h2>
+        <p>
+          Matech no es solo un mate. Es un sistema completo impulsado por un microcontrolador <b>ESP32</b> 
+          con sensores de temperatura y pantallas LCD. Se conecta vía Bluetooth a una aplicación nativa en <b>Android (Kotlin + Jetpack Compose)</b>, 
+          registrando las rondas de mate, calculando estadísticas en tiempo real y enviando la telemetría a <b>Firebase Firestore</b>.
+        </p>
+      </section>
+
+      <section class="map-section">
+        <h2>📍 Rondas Globales en Tiempo Real</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 20px;">Cada pin representa una ronda terminada y sincronizada por un usuario de Matech.</p>
+        <div id="mapa-matech"></div>
+      </section>
+
+      <section class="gallery-section">
+        <h2>Detrás de Escena</h2>
+        <div class="gallery-grid">
+          <img src="/assets/matech/mate1.jpeg" alt="Hardware y ESP32 del termo Matech" class="gallery-photo" />
+          <img src="/assets/matech/mate1.jpeg" alt="Captura de la aplicación Android de Matech" class="gallery-photo" />
+          <img src="/assets/matech/mate1.jpeg" alt="Ronda de mate con tecnología IoT" class="gallery-photo" />
+        </div>
+      </section>
+
+    </div>
+
+    <footer>
+      <p>Desarrollado con 💻 y 🧉. Construido con Astro, Kotlin y Firebase.</p>
+    </footer>
+
+    <script>
+      import { initializeApp } from "firebase/app";
+      import { getFirestore, collection, getDocs } from "firebase/firestore";
+      import L from "leaflet";
+
+      // Reemplaza con tus credenciales reales
+      const firebaseConfig = {
+        apiKey: "AIzaSyDNfRQCZWsd1ltcDDPW11gGrfgxqT0uKxQ",
+        authDomain: "matech-c6544.firebaseapp.com",
+        projectId: "matech-c6544",
+        storageBucket: "matech-c6544.firebasestorage.app",
+        messagingSenderId: "869746695670",
+        appId: "1:869746695670:web:47839e22ded886284bbbd7"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      // Inicializamos el mapa centrado (ej: Océano Atlántico para ver Europa y Sudamérica)
+      const map = L.map('mapa-matech').setView([20, -30], 3);
+
+      // Usamos el diseño claro por defecto de OpenStreetMap (el que te gustó)
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap'
+      }).addTo(map);
+
+      // Solución al bug visual de los íconos azules por defecto de Leaflet
+      delete L.Icon.Default.prototype._getIconUrl;
+      L.Icon.Default.mergeOptions({
+        iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+        iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+        shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+      });
+
+      // Carga de datos de Firebase
+      async function cargarRondas() {
+        try {
+          const querySnapshot = await getDocs(collection(db, "rondas"));
+          
+          querySnapshot.forEach((doc) => {
+            const datos = doc.data();
+            
+            if (datos.latitud !== undefined && datos.longitud !== undefined) {
+              
+              let fechaLegible = "Fecha desconocida";
+              if (datos.fechaTimestamp) {
+                const fecha = new Date(datos.fechaTimestamp);
+                fechaLegible = fecha.toLocaleDateString('es-ES', { 
+                  day: '2-digit', month: '2-digit', year: 'numeric',
+                  hour: '2-digit', minute: '2-digit'
+                });
+              }
+
+             const materosTexto = (datos.materos && datos.materos.length > 0) 
+                ? datos.materos.join(", ") 
+                : "Solo";
+
+              // Creamos el pin en el mapa
+              const marker = L.marker([datos.latitud, datos.longitud]).addTo(map);
+              
+              // --- POPUP ACTUALIZADO ---
+              const popupContenido = `
+                <div style="font-family: system-ui, sans-serif; padding: 4px;">
+                  <h3 style="margin: 0 0 5px 0; color: #2e7d32;">🧉 Ronda de mates</h3>
+                  <div style="border-top: 1px solid #ccc; margin: 8px 0;"></div>
+                  <p style="margin: 4px 0;"><strong>Fecha:</strong> ${fechaLegible}</p>
+                  <p style="margin: 4px 0;"><strong>Mates:</strong> ${datos.totalMates}</p>
+                  <p style="margin: 4px 0;"><strong>Materos:</strong> ${materosTexto}</p>
+                </div>
+              `;
+              
+              marker.bindPopup(popupContenido);
+            }
+          });
+        } catch (error) {
+          console.error("Error al cargar rondas:", error);
+        }
+      }
+
+      cargarRondas();
+    </script>
+  </body>
+</html>

@@ -10,6 +10,8 @@ node_modules/
 # Log files
 *.log*
 
+.env/
+
 # macOS system files
 .DS_Store
 Thumbs.db

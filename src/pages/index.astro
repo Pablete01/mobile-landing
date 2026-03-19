@@ -12,7 +12,7 @@ import { descriptions } from "../components/data/appDescriptions";
 const siteConfig = {
     name: "El Mate Company",
     description: "Desarrollo Mobile Full Stack.",
-    logo: "/perfil.png",
+    logo: "/assets/logo_matecompany.webp",
     socialLinks: [
         { name: "LinkedIn", href: "https://www.linkedin.com/in/pablo-andres-cavallero-163834293/" },
         { name: "GitHub", href: "https://github.com/pablete01" }
@@ -27,7 +27,20 @@ const pageDescription = "Portfolio de apps nativas desarrolladas por Pablo Caval
 <main class="min-h-screen py-8 container mx-auto px-3 md:px-6">
 
     <section class="py-20 flex flex-col items-center text-center border-b dark:border-gray-800 mb-16">
-    <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">{siteConfig.name}</h1>
+    <div class="flex items-center justify-center gap-4 mb-6">
+        <div class="w-16 h-16 md:w-20 md:h-20 bg-white rounded-full p-2 shadow-sm flex items-center justify-center overflow-hidden border border-gray-100 dark:border-gray-800">
+            <img 
+                src={siteConfig.logo} 
+                alt={`Logo de ${siteConfig.name}`} 
+                class="w-full h-full object-contain rounded-full"
+            />
+        </div>
+        
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight">
+            {siteConfig.name}
+        </h1>
+    </div>
+
     <p class="text-xl text-gray-600 mb-10">
         Diseño, desarrollo y publicación de aplicaciones móviles nativas.
     </p>

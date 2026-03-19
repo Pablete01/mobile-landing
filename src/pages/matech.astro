@@ -164,9 +164,12 @@
       <section class="gallery-section">
         <h2>Detrás de Escena</h2>
         <div class="gallery-grid">
-          <img src="/assets/matech/mate1.jpeg" alt="Hardware y ESP32 del termo Matech" class="gallery-photo" />
-          <img src="/assets/matech/mate1.jpeg" alt="Captura de la aplicación Android de Matech" class="gallery-photo" />
-          <img src="/assets/matech/mate1.jpeg" alt="Ronda de mate con tecnología IoT" class="gallery-photo" />
+          <img src="/assets/matech/mate44.webp" alt="Captura de la aplicación Android de Matech" class="gallery-photo" />  
+          <img src="/assets/matech/mate55.webp" alt="Ronda de mate con tecnología IoT" class="gallery-photo" />
+          <img src="/assets/matech/mate11.webp" alt="Hardware y ESP32 del termo Matech" class="gallery-photo" />
+                 
+          <img src="/assets/matech/mate22.webp" alt="Captura de la aplicación Android de Matech" class="gallery-photo" />
+          <img src="/assets/matech/mate33.webp" alt="Ronda de mate con tecnología IoT" class="gallery-photo" />
         </div>
       </section>
 
@@ -195,7 +198,25 @@
       const db = getFirestore(app);
 
       // Inicializamos el mapa centrado (ej: Océano Atlántico para ver Europa y Sudamérica)
-      const map = L.map('mapa-matech').setView([20, -30], 3);
+      var limitesDelMundo = [
+  [-90, -180], // Esquina inferior izquierda (Sur, Oeste)
+  [90, 180]    // Esquina superior derecha (Norte, Este)
+];
+
+// 2. Creamos el mapa con las restricciones
+var map = L.map('mapa-matech', {
+  center: [20, 0], // Centrado más o menos en el Atlántico
+  zoom: 2,
+  minZoom: 2, // Clave: Evita que alejen tanto la cámara que el mapa quede como un cuadrito en medio de la pantalla
+  maxBounds: limitesDelMundo, // Las paredes invisibles
+  maxBoundsViscosity: 1.0 // 1.0 hace que la pared sea sólida. Si pones menos (ej: 0.5), tiene un efecto de rebote elástico.
+});
+
+// 3. Agregamos la capa visual con noWrap
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  noWrap: true, // ¡La magia principal! No repite el mapa.
+  attribution: '© OpenStreetMap contributors'
+}).addTo(map);
 
       // Usamos el diseño claro por defecto de OpenStreetMap (el que te gustó)
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

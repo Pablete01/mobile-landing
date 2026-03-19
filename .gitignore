@@ -10,7 +10,7 @@ node_modules/
 # Log files
 *.log*
 
-.env/
+.env
 
 # macOS system files
 .DS_Store

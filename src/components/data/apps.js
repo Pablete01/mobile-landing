@@ -177,6 +177,44 @@ description: `
     currentTask: "Pruebas en motor, ajustes, desarrollo de app",
     stack: ["Compose Multiplatform", "Koin", "Datastore Prefereces", "Microcontrolador PIC", "MPLAB" ],
     emoji: "🚀"
-  }
+  },
+
+  {
+    id: "Matech",
+    name: "Matech",
+    description: `
+      <p class="mb-4">Ecosistema IoT diseñado para perfeccionar la experiencia del ritual del mate. Combina hardware de precisión y una aplicación móvil para monitorear temperaturas, gestionar rondas y analizar hábitos de consumo en tiempo real.</p>
+      
+      <h4 class="text-sm font-bold text-emerald-500 dark:text-emerald-400 mb-2 mt-4 uppercase tracking-wider">Ingeniería del Ritual</h4>
+      <ul class="list-disc pl-5 space-y-1.5 mb-4 marker:text-emerald-500">
+        <li><strong>Detección Inteligente:</strong> Implementación de una <strong>Máquina de Estados Finita</strong> que alterna la escucha entre sensores térmicos (DS18B20) para distinguir con precisión entre el acto de "cebar" y "tomar".</li>
+        <li><strong>Gestión de Rondas:</strong> Lógica distribuida para el manejo de turnos de hasta 10 usuarios con sincronización bidireccional vía Bluetooth Serial.</li>
+      </ul>
+      
+      <h4 class="text-sm font-bold text-emerald-500 dark:text-emerald-400 mb-2 mt-4 uppercase tracking-wider">Desafíos de Hardware</h4>
+      <ul class="list-disc pl-5 space-y-1.5 mb-6 marker:text-emerald-500">
+        <li><strong>UX Sonora y Visual:</strong> Interfaz de usuario en pantalla OLED SSD1306 con feedback auditivo diferenciado para eventos del sistema y alertas de "mate frío" programables.</li>
+        <li><strong>Arquitectura Robusta:</strong> Integración de carga Li-Ion vía TP4056 con aislamiento de ruido para proteger la integridad del ESP32 durante los picos de consumo de la antena Bluetooth.</li>
+      </ul>
+
+      <div class="mt-8 p-5 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl border border-emerald-100 dark:border-emerald-800/50">
+        <h4 class="text-sm font-bold text-emerald-600 dark:text-emerald-400 mb-2 uppercase tracking-wider flex items-center gap-2">
+          <span>En Laboratorio</span> <span>🧉</span>
+        </h4>
+        <p class="text-sm mb-4 text-gray-700 dark:text-gray-300 italic">
+          "El hardware es difícil, pero con mate es más fácil". Explora mas sobre el proyecto.
+        </p>
+        <a href="/matech" class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-lg transition-all shadow-md hover:shadow-lg active:scale-95">
+          Ver detrás de escena
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    `,
+    progress: 85, // ¡Le subí el progreso porque ya tienes casi todo!
+    status: "Fase Beta Avanzada",
+    currentTask: "Optimización de consumo y pulido de UI en App",
+    stack: ["Kotlin", "Jetpack Compose", "Firebase Firestore", "C++ (Arduino/ESP32)", "Bluetooth Low Energy"],
+    emoji: "🧉"
+}
   // En el futuro, simplemente agregás otro objeto acá separado por coma
 ];

@@ -19,6 +19,7 @@
       }
       
       body {
+        
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         margin: 0;
         padding: 0;
@@ -66,6 +67,40 @@
         max-width: 600px;
         margin: 0 auto;
       }
+      /* Estilos para el botón de volver */
+.btn-volver-raiz {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* Espacio entre la flecha y el texto */
+  padding: 10px 20px;
+  margin: 20px 20px 0 20px; /* Margen para separarlo de los bordes */
+  background-color: #ffffff; /* Fondo blanco o crema limpio */
+  color: #2c3e50; /* Un gris/azul oscuro muy elegante para el texto */
+  text-decoration: none; /* Quitamos la línea de abajo típica de los links */
+  font-family: sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 50px; /* Bordes bien redondeados tipo píldora */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Sombra muy suave */
+  transition: all 0.3s ease; /* Animación suave al pasar el mouse */
+  position: absolute; 
+  top: 20px; /* Distancia desde el techo de la página */
+  left: 20px; /* Distancia desde la pared izquierda */
+  margin: 0; /* Borramos el margen que le habíamos puesto antes para qu
+  
+  /* Opcional: Si quieres que siempre esté visible al hacer scroll, descomenta las siguientes 3 líneas */
+  /* position: fixed; */
+  /* top: 20px; */
+  /* left: 20px; */
+  /* z-index: 1000; */
+}
+
+/* Efecto al pasar el mouse por encima */
+.btn-volver-raiz:hover {
+  transform: translateY(-2px); /* Se levanta un poquito */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* La sombra se hace más grande */
+  color: #4a7c59; /* El texto se pinta de un verde mate sutil */
+}
 
       /* 2. SECCIÓN SOBRE EL PROYECTO */
       .about-project {
@@ -140,6 +175,12 @@
   <body>
     
     <header class="hero">
+      <a href="/" class="btn-volver-raiz">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19 12H5M12 19l-7-7 7-7"/>
+  </svg>
+  Volver
+</a>
       <h1>Matech</h1>
       <p>El mate inteligente IoT que conecta la tradición del mate con la telemetría en la nube.</p>
     </header>
@@ -164,12 +205,12 @@
       <section class="gallery-section">
         <h2>Detrás de Escena</h2>
         <div class="gallery-grid">
-          <img src="/assets/matech/mate44.webp" alt="Captura de la aplicación Android de Matech" class="gallery-photo" />  
-          <img src="/assets/matech/mate55.webp" alt="Ronda de mate con tecnología IoT" class="gallery-photo" />
-          <img src="/assets/matech/mate11.webp" alt="Hardware y ESP32 del termo Matech" class="gallery-photo" />
-                 
+          <img src="/assets/matech/mate44.webp" alt="Captura de la aplicación Android de Matech" class="gallery-photo" />       
+          <img src="/assets/matech/mate11.webp" alt="Hardware y ESP32 del termo Matech" class="gallery-photo" />        
           <img src="/assets/matech/mate22.webp" alt="Captura de la aplicación Android de Matech" class="gallery-photo" />
           <img src="/assets/matech/mate33.webp" alt="Ronda de mate con tecnología IoT" class="gallery-photo" />
+          <img src="/assets/matech/mate77.webp" alt="Captura de la aplicación Android de Matech" class="gallery-photo" />
+          <img src="/assets/matech/mate66.webp" alt="Ronda de mate con tecnología IoT" class="gallery-photo" />
         </div>
       </section>
 

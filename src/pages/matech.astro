@@ -11,125 +11,118 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     
     <style>
-      /* Estilos generales y limpios (Diseño Claro) */
+      /* --- ESTILO PORTFOLIO (Sleek Dark Mode) --- */
       :root {
-        --primary-color: #2e7d32; /* Verde mate */
-        --bg-color: #fafafa;
-        --text-color: #333;
+        --primary-color: #10b981; 
+        --bg-color: #0f172a;      
+        --surface-color: #1e293b; 
+        --text-main: #f8fafc;     
+        --text-muted: #94a3b8;    
+        --border-color: #334155;  
       }
       
       body {
-        
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         margin: 0;
         padding: 0;
         background-color: var(--bg-color);
-        color: var(--text-color);
+        color: var(--text-main);
         line-height: 1.6;
-
-        /* 1. Color base de la página (un crema muy claro o casi blanco) */
- /* background-color: #faf8f5;*/
-
-  /* 2. Carga tu imagen de hojas de mate sutiles */
- /*  background-image: url('/img/fondo-mate.png');*/
-
-  /* 3. ¡Esta es la magia! Hace que la imagen se repita (tile) */
- /*  background-repeat: repeat;*/
-
-  /* Opcional: Centra el inicio de la imagen */
- /*  background-position: center top;*/
-
-  /* Opcional: Fija el fondo para que no se mueva al hacer scroll (efecto "marca de agua") */
- /*  background-attachment: fixed; */
       }
 
-      /* Contenedor central para que no se estire al infinito en pantallas gigantes */
       .container {
         max-width: 1000px;
         margin: 0 auto;
         padding: 0 20px;
       }
 
-      /* 1. SECCIÓN HERO */
+      /* HERO */
       .hero {
         text-align: center;
-        padding: 80px 20px 40px;
+        padding: 100px 20px 60px;
+        position: relative;
       }
       .hero h1 {
-        font-size: 3rem;
+        font-size: 3.5rem;
         margin-bottom: 10px;
-        color: #111;
+        color: var(--text-main);
         letter-spacing: -1px;
+      }
+      .hero h1 span {
+        color: var(--primary-color);
       }
       .hero p {
         font-size: 1.2rem;
-        color: #666;
+        color: var(--text-muted);
         max-width: 600px;
         margin: 0 auto;
       }
-      /* Estilos para el botón de volver */
-.btn-volver-raiz {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px; /* Espacio entre la flecha y el texto */
-  padding: 10px 20px;
-  margin: 20px 20px 0 20px; /* Margen para separarlo de los bordes */
-  background-color: #ffffff; /* Fondo blanco o crema limpio */
-  color: #2c3e50; /* Un gris/azul oscuro muy elegante para el texto */
-  text-decoration: none; /* Quitamos la línea de abajo típica de los links */
-  font-family: sans-serif;
-  font-weight: 600;
-  font-size: 0.9rem;
-  border-radius: 50px; /* Bordes bien redondeados tipo píldora */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Sombra muy suave */
-  transition: all 0.3s ease; /* Animación suave al pasar el mouse */
-  position: absolute; 
-  top: 20px; /* Distancia desde el techo de la página */
-  left: 20px; /* Distancia desde la pared izquierda */
-  margin: 0; /* Borramos el margen que le habíamos puesto antes para qu
-  
-  /* Opcional: Si quieres que siempre esté visible al hacer scroll, descomenta las siguientes 3 líneas */
-  /* position: fixed; */
-  /* top: 20px; */
-  /* left: 20px; */
-  /* z-index: 1000; */
-}
 
-/* Efecto al pasar el mouse por encima */
-.btn-volver-raiz:hover {
-  transform: translateY(-2px); /* Se levanta un poquito */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* La sombra se hace más grande */
-  color: #4a7c59; /* El texto se pinta de un verde mate sutil */
-}
+      /* BOTÓN VOLVER */
+      .btn-volver-raiz {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        background-color: var(--surface-color);
+        color: var(--text-main);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        border-radius: 50px;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+        position: absolute; 
+        top: 24px;
+        left: 24px;
+        margin: 0; 
+        z-index: 10;
+      }
+      .btn-volver-raiz:hover {
+        background-color: var(--border-color);
+        color: var(--primary-color);
+      }
 
-      /* 2. SECCIÓN SOBRE EL PROYECTO */
+      /* SOBRE EL PROYECTO */
       .about-project {
-        background: white;
+        background: var(--surface-color);
         padding: 40px;
         border-radius: 16px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        border: 1px solid var(--border-color);
         margin-bottom: 60px;
         text-align: center;
       }
-      .about-project h2 { margin-top: 0; }
+      .about-project h2 { margin-top: 0; color: var(--text-main); }
+      .about-project p { color: var(--text-muted); }
+      .about-project b { color: var(--primary-color); }
 
-      /* 3. SECCIÓN DEL MAPA */
+      /* MAPA */
       .map-section {
         margin-bottom: 60px;
+        background: var(--surface-color);
+        padding: 30px;
+        border-radius: 16px;
+        border: 1px solid var(--border-color);
       }
       .map-section h2 {
         text-align: center;
-        margin-bottom: 20px;
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .map-subtitle {
+        text-align: center; 
+        color: var(--text-muted); 
+        margin-bottom: 25px;
+        font-size: 0.95rem;
       }
       #mapa-matech {
-        height: 500px; /* Un poco más bajo para que no ocupe toda la pantalla */
+        height: 450px;
         width: 100%;
-        border-radius: 16px;
-        box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-        z-index: 1; /* Para evitar problemas con otros elementos */
+        border-radius: 12px;
+        z-index: 1; 
       }
 
-      /* 4. SECCIÓN DE GALERÍA */
+      /* GALERÍA MÁS CHICA */
       .gallery-section {
         margin-bottom: 80px;
       }
@@ -137,38 +130,73 @@
         text-align: center;
         margin-bottom: 30px;
       }
-      /* EL CONTENEDOR: Las pone lado a lado en PC, y las apila en celular automáticamente */
       .gallery-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
-        margin-top: 30px;
-        align-items: start; /* Si una foto es un poco más alta que otra, no deforma a las demás */
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+        gap: 20px;
+        align-items: center; 
       }
-
-      /* LA FOTO: Ocupa su columna entera y muestra la altura completa */
       .gallery-photo {
         width: 100%;
-        height: auto; /* Muestra la foto entera sin recortar nada */
+        height: 180px; 
+        object-fit: cover; 
         border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid var(--border-color);
+        transition: transform 0.3s ease, border-color 0.3s ease;
+        cursor: zoom-in;
       }
-      
       .gallery-photo:hover {
-        transform: scale(1.03);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      }
-      .photo-placeholder:hover {
-        transform: scale(1.02);
+        transform: scale(1.05);
+        border-color: var(--primary-color);
       }
 
-      /* Pie de página */
+      /* LIGHTBOX */
+      .lightbox {
+        display: none; 
+        position: fixed;
+        z-index: 9999; 
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(15, 23, 42, 0.95); 
+        align-items: center;
+        justify-content: center;
+        cursor: zoom-out; 
+      }
+      .lightbox img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 8px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+        animation: aparecer 0.2s ease-out; 
+      }
+      .lightbox-cerrar {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: white;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      @keyframes aparecer {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+      }
+
       footer {
         text-align: center;
         padding: 40px 20px;
-        color: #888;
-        border-top: 1px solid #eaeaea;
+        color: var(--text-muted);
+        border-top: 1px solid var(--border-color);
+      }
+      
+      /* Ajuste Leaflet popup para Dark Mode */
+      .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+        background: var(--surface-color);
+        color: var(--text-main);
       }
     </style>
   </head>
@@ -176,17 +204,16 @@
     
     <header class="hero">
       <a href="/" class="btn-volver-raiz">
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M19 12H5M12 19l-7-7 7-7"/>
-  </svg>
-  Volver
-</a>
-      <h1>Matech</h1>
-      <p>El mate inteligente IoT que conecta la tradición del mate con la telemetría en la nube.</p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Volver
+      </a>
+      <h1>Ma<span>tech</span></h1>
+      <p>El mate inteligente IoT que conecta la tradición con la telemetría en la nube.</p>
     </header>
 
     <div class="container">
-      
       <section class="about-project">
         <h2>¿Qué hay bajo el capó?</h2>
         <p>
@@ -197,75 +224,71 @@
       </section>
 
       <section class="map-section">
-        <h2>📍 Rondas Globales en Tiempo Real</h2>
-        <p style="text-align: center; color: #666; margin-bottom: 20px;">Cada pin representa una ronda terminada y sincronizada por un usuario de Matech.</p>
+        <h2>📍 Rondas Globales</h2>
+        <p class="map-subtitle">Cada pin representa una ronda terminada y sincronizada por un usuario.</p>
         <div id="mapa-matech"></div>
       </section>
 
       <section class="gallery-section">
-        <h2>Detrás de Escena</h2>
+        <h2>En Laboratorio 🧉</h2>
         <div class="gallery-grid">
-          <img src="/assets/matech/mate44.webp" alt="Captura de la aplicación Android de Matech" class="gallery-photo" />       
-          <img src="/assets/matech/mate11.webp" alt="Hardware y ESP32 del termo Matech" class="gallery-photo" />        
-          <img src="/assets/matech/mate22.webp" alt="Captura de la aplicación Android de Matech" class="gallery-photo" />
-          <img src="/assets/matech/mate33.webp" alt="Ronda de mate con tecnología IoT" class="gallery-photo" />
-          <img src="/assets/matech/mate77.webp" alt="Captura de la aplicación Android de Matech" class="gallery-photo" />
-          <img src="/assets/matech/mate66.webp" alt="Ronda de mate con tecnología IoT" class="gallery-photo" />
+          <img src="/assets/matech/mate44.webp" alt="Captura de la aplicación Android" class="gallery-photo" />       
+          <img src="/assets/matech/mate11.webp" alt="Hardware y ESP32" class="gallery-photo" />        
+          <img src="/assets/matech/mate22.webp" alt="Desarrollo Android" class="gallery-photo" />
+          <img src="/assets/matech/mate33.webp" alt="Tecnología IoT" class="gallery-photo" />
+          <img src="/assets/matech/mate77.webp" alt="Telemetría en app" class="gallery-photo" />
+          <img src="/assets/matech/mate66.webp" alt="Ronda finalizada" class="gallery-photo" />
         </div>
       </section>
-
     </div>
 
     <footer>
       <p>Desarrollado con 💻 y 🧉. Construido con Astro, Kotlin y Firebase.</p>
     </footer>
 
+    <div id="lightbox" class="lightbox">
+      <span class="lightbox-cerrar">&times;</span>
+      <img id="lightbox-img" src="" alt="Imagen ampliada" />
+    </div>
+
     <script>
+      // Importaciones necesarias (Esto es lo que evitaba el error de TypeScript)
+      import L from "leaflet";
       import { initializeApp } from "firebase/app";
       import { getFirestore, collection, getDocs } from "firebase/firestore";
-      import L from "leaflet";
 
-      // Reemplaza con tus credenciales reales
-     const firebaseConfig = {
-  apiKey: import.meta.env.PUBLIC_FIREBASE_API_KEY,
-  authDomain: import.meta.env.PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.PUBLIC_FIREBASE_APP_ID
-};
+      // 1. LÓGICA DEL LIGHTBOX
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const galeriaImgs = document.querySelectorAll('.gallery-photo');
 
-      const app = initializeApp(firebaseConfig);
-      const db = getFirestore(app);
+      galeriaImgs.forEach(img => {
+        img.addEventListener('click', () => {
+          lightbox.style.display = 'flex';
+          lightboxImg.src = img.src;
+        });
+      });
 
-      // Inicializamos el mapa centrado (ej: Océano Atlántico para ver Europa y Sudamérica)
-      var limitesDelMundo = [
-  [-90, -180], // Esquina inferior izquierda (Sur, Oeste)
-  [90, 180]    // Esquina superior derecha (Norte, Este)
-];
+      lightbox.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+      });
 
-// 2. Creamos el mapa con las restricciones
-var map = L.map('mapa-matech', {
-  center: [20, 0], // Centrado más o menos en el Atlántico
-  zoom: 2,
-  minZoom: 2, // Clave: Evita que alejen tanto la cámara que el mapa quede como un cuadrito en medio de la pantalla
-  maxBounds: limitesDelMundo, // Las paredes invisibles
-  maxBoundsViscosity: 1.0 // 1.0 hace que la pared sea sólida. Si pones menos (ej: 0.5), tiene un efecto de rebote elástico.
-});
+      // 2. INICIALIZACIÓN DEL MAPA LEAFLET
+      var limitesDelMundo = [[-90, -180], [90, 180]];
+      var map = L.map('mapa-matech', {
+        center: [20, 0],
+        zoom: 2,
+        minZoom: 2,
+        maxBounds: limitesDelMundo,
+        maxBoundsViscosity: 1.0
+      });
 
-// 3. Agregamos la capa visual con noWrap
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  noWrap: true, // ¡La magia principal! No repite el mapa.
-  attribution: '© OpenStreetMap contributors'
-}).addTo(map);
-
-      // Usamos el diseño claro por defecto de OpenStreetMap (el que te gustó)
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '© OpenStreetMap'
+        noWrap: true,
+        attribution: '© OpenStreetMap contributors'
       }).addTo(map);
 
-      // Solución al bug visual de los íconos azules por defecto de Leaflet
+      // Solución para que se vean los pines azules de Leaflet
       delete L.Icon.Default.prototype._getIconUrl;
       L.Icon.Default.mergeOptions({
         iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
@@ -273,43 +296,50 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
       });
 
-      // Carga de datos de Firebase
+      // 3. LÓGICA DE FIREBASE
+      const firebaseConfig = {
+        apiKey: import.meta.env.PUBLIC_FIREBASE_API_KEY,
+        authDomain: import.meta.env.PUBLIC_FIREBASE_AUTH_DOMAIN,
+        projectId: import.meta.env.PUBLIC_FIREBASE_PROJECT_ID,
+        storageBucket: import.meta.env.PUBLIC_FIREBASE_STORAGE_BUCKET,
+        messagingSenderId: import.meta.env.PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+        appId: import.meta.env.PUBLIC_FIREBASE_APP_ID
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
       async function cargarRondas() {
         try {
           const querySnapshot = await getDocs(collection(db, "rondas"));
-          
           querySnapshot.forEach((doc) => {
             const datos = doc.data();
-            
             if (datos.latitud !== undefined && datos.longitud !== undefined) {
               
               let fechaLegible = "Fecha desconocida";
               if (datos.fechaTimestamp) {
                 const fecha = new Date(datos.fechaTimestamp);
-                fechaLegible = fecha.toLocaleDateString('es-ES', { 
+                fechaLegible = fecha.toLocaleDateString('es-ES', {
                   day: '2-digit', month: '2-digit', year: 'numeric',
                   hour: '2-digit', minute: '2-digit'
                 });
               }
 
-             const materosTexto = (datos.materos && datos.materos.length > 0) 
-                ? datos.materos.join(", ") 
+              const materosTexto = (datos.materos && datos.materos.length > 0)
+                ? datos.materos.join(", ")
                 : "Solo";
-
-              // Creamos el pin en el mapa
+              
               const marker = L.marker([datos.latitud, datos.longitud]).addTo(map);
               
-              // --- POPUP ACTUALIZADO ---
               const popupContenido = `
                 <div style="font-family: system-ui, sans-serif; padding: 4px;">
-                  <h3 style="margin: 0 0 5px 0; color: #2e7d32;">🧉 Ronda de mates</h3>
-                  <div style="border-top: 1px solid #ccc; margin: 8px 0;"></div>
+                  <h3 style="margin: 0 0 5px 0; color: #10b981;">🧉 Ronda de mates</h3>
+                  <div style="border-top: 1px solid #334155; margin: 8px 0;"></div>
                   <p style="margin: 4px 0;"><strong>Fecha:</strong> ${fechaLegible}</p>
                   <p style="margin: 4px 0;"><strong>Mates:</strong> ${datos.totalMates}</p>
                   <p style="margin: 4px 0;"><strong>Materos:</strong> ${materosTexto}</p>
                 </div>
               `;
-              
               marker.bindPopup(popupContenido);
             }
           });

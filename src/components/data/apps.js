@@ -183,7 +183,7 @@ description: `
     id: "Matech",
     name: "Matech",
     description: `
-      <p class="mb-4">Termo inteligente e interactivo diseñado para perfeccionar la experiencia del ritual del mate, integrando hardware a medida con una aplicación móvil.</p>
+      <p class="mb-4">Mate inteligente e interactivo diseñado para perfeccionar la experiencia del ritual, integrando hardware a medida con una aplicación móvil.</p>
       
       <h4 class="text-sm font-bold text-emerald-500 dark:text-emerald-400 mb-2 mt-4 uppercase tracking-wider">Características Principales</h4>
       <ul class="list-disc pl-5 space-y-1.5 mb-6 marker:text-emerald-500 text-gray-800 dark:text-gray-200">

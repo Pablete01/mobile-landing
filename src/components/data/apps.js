@@ -103,6 +103,27 @@ export const misApps = [
 },
 
 {
+    id: "stockear",
+    isFeatured: false,
+    name: "Stockear - Control de inventario",
+    description: "Aplicacion para llevar el stock de tu negocio de manera simple.",
+    logo: "/assets/stockear/stockear_512.png", // Asegúrate de subirlo a public/assets/
+    rating: { score: 5.0, count: 1 },
+    downloads: "10+",
+    version: "1.0.0",
+    releaseDate: "Marzo 2026",
+    technologies: ["SwiftUI", "Compose Multiplatform", "Kotlin", "RevenueCat", "Koin", "Room", "Datastore"],
+   screenshots: {
+    iphone: [], // Aunque esté vacío, debe ser un array
+    ipad: []    // Aunque esté vacío, debe ser un array
+  },
+    storeLinks: {
+      apple: "",
+      google: "https://play.google.com/store/apps/details?id=com.app.stockear"
+    }
+},
+
+{
     id: "crazy-bee",
     isFeatured: false,
     name: "Crazy Bee",
@@ -126,33 +147,33 @@ export const misApps = [
 ];
 
 export const appsEnDesarrollo = [
-  {
-    id: "proyecto-stockear",
-    name: "Stockear - Control de stock",
-    description: `
-      <p class="mb-4">Solución inteligente de gestión de inventarios para pequeños comercios, diseñada para operar en entornos de alta movilidad mediante procesamiento de lenguaje natural y sincronización en la nube.</p>
+  //{
+  //   id: "proyecto-stockear",
+  //   name: "Stockear - Control de stock",
+  //   description: `
+  //     <p class="mb-4">Solución inteligente de gestión de inventarios para pequeños comercios, diseñada para operar en entornos de alta movilidad mediante procesamiento de lenguaje natural y sincronización en la nube.</p>
       
-      <h4 class="text-sm font-bold text-blue-500 dark:text-blue-400 mb-2 mt-4 uppercase tracking-wider">Proyecto y Producto</h4>
-      <ul class="list-disc pl-5 space-y-1.5 mb-4 marker:text-blue-500">
-        <li>Responsable del ciclo de vida completo: arquitectura de base de datos local, estrategia de monetización <strong>Freemium</strong> y despliegue en Google Play.</li>
-        <li>Diseño de interfaz <strong>Material 3</strong> optimizada para la operación con una sola mano, priorizando la velocidad de captura de datos en el punto de venta.</li>
-      </ul>
+  //     <h4 class="text-sm font-bold text-blue-500 dark:text-blue-400 mb-2 mt-4 uppercase tracking-wider">Proyecto y Producto</h4>
+  //     <ul class="list-disc pl-5 space-y-1.5 mb-4 marker:text-blue-500">
+  //       <li>Responsable del ciclo de vida completo: arquitectura de base de datos local, estrategia de monetización <strong>Freemium</strong> y despliegue en Google Play.</li>
+  //       <li>Diseño de interfaz <strong>Material 3</strong> optimizada para la operación con una sola mano, priorizando la velocidad de captura de datos en el punto de venta.</li>
+  //     </ul>
       
-      <h4 class="text-sm font-bold text-blue-500 dark:text-blue-400 mb-2 mt-4 uppercase tracking-wider">Desafío Técnico</h4>
-      <ul class="list-disc pl-5 space-y-1.5 marker:text-blue-500">
-        <li>Integración de <strong>Inteligencia Artificial (Speech-to-Intent)</strong> para la creación y actualización de existencias mediante comandos de voz.</li>
-        <li>Arquitectura <strong>Offline-First</strong> robusta implementando <strong>Room/SQLite</strong>, garantizando que el usuario nunca pierda datos por falta de cobertura.</li>
-        <li>Desarrollo de un sistema de exportación y respaldo automatizado en <strong>Google Sheets</strong> para el análisis de inventario externo y auditoría.</li>
-        <li>Validación de suscripciones en tiempo real con <strong>RevenueCat</strong> y <strong>Google Cloud Pub/Sub</strong>, asegurando la integridad del modelo de negocio.</li>
-        <li>Implementación de seguridad avanzada y ofuscación de código con <strong>R8/ProGuard</strong> para proteger la lógica de negocio y las APIs integradas.</li>
-      </ul>
-    `,
-    progress: 85,
-    status: "Fase Beta",
-    currentTask: "Pruebas en pasarela de pagos, pulido de UI.",
-    stack: ["Compose Multiplatform", "Koin", "Room", "RevenueCat", "Datastore Preferences" ],
-    emoji: "🚀"
-  },
+  //     <h4 class="text-sm font-bold text-blue-500 dark:text-blue-400 mb-2 mt-4 uppercase tracking-wider">Desafío Técnico</h4>
+  //     <ul class="list-disc pl-5 space-y-1.5 marker:text-blue-500">
+  //       <li>Integración de <strong>Inteligencia Artificial (Speech-to-Intent)</strong> para la creación y actualización de existencias mediante comandos de voz.</li>
+  //       <li>Arquitectura <strong>Offline-First</strong> robusta implementando <strong>Room/SQLite</strong>, garantizando que el usuario nunca pierda datos por falta de cobertura.</li>
+  //       <li>Desarrollo de un sistema de exportación y respaldo automatizado en <strong>Google Sheets</strong> para el análisis de inventario externo y auditoría.</li>
+  //       <li>Validación de suscripciones en tiempo real con <strong>RevenueCat</strong> y <strong>Google Cloud Pub/Sub</strong>, asegurando la integridad del modelo de negocio.</li>
+  //       <li>Implementación de seguridad avanzada y ofuscación de código con <strong>R8/ProGuard</strong> para proteger la lógica de negocio y las APIs integradas.</li>
+  //     </ul>
+  //   `,
+  //   progress: 85,
+  //   status: "Fase Beta",
+  //   currentTask: "Pruebas en pasarela de pagos, pulido de UI.",
+  //   stack: ["Compose Multiplatform", "Koin", "Room", "RevenueCat", "Datastore Preferences" ],
+  //   emoji: "🚀"
+  // },
 
   {
     id: "miniecu",

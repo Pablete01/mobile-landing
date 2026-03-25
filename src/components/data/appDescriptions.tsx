@@ -20,20 +20,24 @@ export const descriptions = {
       <li>Integración de deep linking e Intents de navegación (Google Maps) para guiar al usuario de forma fluida y exacta hacia el POI elegido.</li>
     </ul>
   `,
-  // "donde-cargar": `
-  //   <p class="mb-4">Aplicación líder en el mercado argentino para el ahorro en combustibles.</p>
-  //   <h4 class="text-sm font-bold text-blue-500 dark:text-blue-400 mb-2 mt-4 uppercase tracking-wider">Logros y Métricas</h4>
-  //   <ul class="list-disc pl-5 space-y-1.5 mb-4 marker:text-blue-500">
-  //     <li>Más de <strong>220.000 descargas orgánicas</strong> y retención de +1.000 usuarios activos diarios.</li>
-  //     <li>Responsable del ciclo completo: Arquitectura, Backend, UI/UX y publicación.</li>
-  //   </ul>
-  //   <h4 class="text-sm font-bold text-blue-500 dark:text-blue-400 mb-2 mt-4 uppercase tracking-wider">Desafío Técnico</h4>
-  //   <ul class="list-disc pl-5 space-y-1.5 marker:text-blue-500">
-  //     <li>Automatización de datos en tiempo real vinculando Google Sheets con <strong>Supabase y Firebase</strong>.</li>
-  //     <li>Desarrollo nativo dual (Kotlin/Swift) bajo arquitectura MVVM e inyección con Dagger Hilt.</li>
-  //     <li>Estrategia de monetización exitosa mediante integración de AdMob.</li>
-  //   </ul>
-  // `,
+  "stockear": `
+    <p class="mb-4">Gestor de inventario diseñado para eliminar la fricción operativa en pequeños negocios. Permite registrar y actualizar el stock en segundos utilizando la cámara (escáner de códigos de barras) y el micrófono (reconocimiento de voz) del dispositivo.</p>
+    
+    <h4 class="text-sm font-bold text-blue-500 dark:text-blue-400 mb-2 mt-4 uppercase tracking-wider">Proyecto y Producto</h4>
+    <ul class="list-disc pl-5 space-y-1.5 mb-4 marker:text-blue-500">
+      <li>Responsable del ciclo de vida completo: conceptualización, diseño UI/UX, desarrollo y publicación en Google Play.</li>
+      <li>Arquitectura centrada en el enfoque "Offline-First", garantizando velocidad extrema sin depender de conexión a internet.</li>
+      <li>Desarrollo de funcionalidades clave: historial de movimientos, alertas de stock bajo y generación inteligente de listas de compras.</li>
+    </ul>
+    
+    <h4 class="text-sm font-bold text-blue-500 dark:text-blue-400 mb-2 mt-4 uppercase tracking-wider">Desafíos Técnicos</h4>
+    <ul class="list-disc pl-5 space-y-1.5 marker:text-blue-500">
+      <li>Desarrollo con <strong>Compose Multiplatform</strong>, logrando una interfaz declarativa, moderna y escalable.</li>
+      <li>Integración de Google Auth y la API de Google Sheets para crear un sistema de respaldo en la nube transparente para el usuario y con coste de servidor cero.</li>
+      <li>Implementación de pasarela de pagos y Paywalls mediante <strong>RevenueCat</strong>, gestionando un modelo Freemium con pase PRO de pago único (Lifetime).</li>
+      <li>Manejo de hardware nativo y concurrencia para la captura fluida de datos (Speech-to-Text y escáner).</li>
+    </ul>
+  `,
 
   "crazy-bee": `
     <p class="mb-4">Emulador de juego arcade que demuestra el potencial de las tecnologías modernas de UI.</p>

@@ -20,6 +20,8 @@ export const descriptions = {
       <li>Integración de deep linking e Intents de navegación (Google Maps) para guiar al usuario de forma fluida y exacta hacia el POI elegido.</li>
     </ul>
   `,
+
+  
   "stockear": `
     <p class="mb-4">Gestor de inventario diseñado para eliminar la fricción operativa en pequeños negocios. Permite registrar y actualizar el stock en segundos utilizando la cámara (escáner de códigos de barras) y el micrófono (reconocimiento de voz) del dispositivo.</p>
     
@@ -36,6 +38,24 @@ export const descriptions = {
       <li>Integración de Google Auth y la API de Google Sheets para crear un sistema de respaldo en la nube transparente para el usuario y con coste de servidor cero.</li>
       <li>Implementación de pasarela de pagos y Paywalls mediante <strong>RevenueCat</strong>, gestionando un modelo Freemium con pase PRO de pago único (Lifetime).</li>
       <li>Manejo de hardware nativo y concurrencia para la captura fluida de datos (Speech-to-Text y escáner).</li>
+    </ul>
+  `,
+  "buscoturno": `
+    <p class="mb-4">Plataforma SaaS integral diseñada para optimizar la gestión de agendas y reservas online. Resuelve la fricción operativa de los prestadores de servicios al automatizar la toma de turnos y centralizar la comunicación con los clientes en un solo lugar.</p>
+    
+    <h4 class="text-sm font-bold text-blue-500 dark:text-blue-400 mb-2 mt-4 uppercase tracking-wider">Proyecto y Producto</h4>
+    <ul class="list-disc pl-5 space-y-1.5 mb-4 marker:text-blue-500">
+      <li>Liderazgo en el diseño de producto y UI/UX, logrando una experiencia de reserva en tres pasos para maximizar la tasa de conversión de los usuarios finales.</li>
+      <li>Desarrollo de un panel de administración multirubro que permite a los profesionales configurar horarios, servicios, duración de turnos y excepciones de agenda.</li>
+      <li>Implementación de un sistema de gestión de clientes (CRM básico) con historial de asistencias y preferencias personalizadas.</li>
+    </ul>
+    
+    <h4 class="text-sm font-bold text-blue-500 dark:text-blue-400 mb-2 mt-4 uppercase tracking-wider">Desafíos Técnicos</h4>
+    <ul class="list-disc pl-5 space-y-1.5 marker:text-blue-500">
+      <li>Arquitectura robusta basada en <strong>React y Firebase</strong>, utilizando <strong>Firestore</strong> para la sincronización de turnos en tiempo real y prevención de colisiones (double-booking).</li>
+      <li>Desarrollo de un algoritmo de disponibilidad dinámica que calcula los huecos libres basándose en la intersección de horarios laborales, duración de servicios y turnos ya existentes.</li>
+      <li>Integración de lógica de servidor mediante <strong>Cloud Functions</strong> para el envío automatizado de notificaciones y recordatorios, reduciendo drásticamente el ausentismo (no-show).</li>
+      <li>Diseño de una base de datos escalable para manejar múltiples comercios bajo una misma infraestructura SaaS, garantizando la privacidad y seguridad de los datos de cada cliente.</li>
     </ul>
   `,
 

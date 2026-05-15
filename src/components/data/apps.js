@@ -142,7 +142,29 @@ export const misApps = [
       apple: "",
       google: "https://play.google.com/store/apps/details?id=com.app.crazybee"
     }
-}
+},
+
+{
+    id: "buscoturno",
+    isFeatured: true, // Podés ponerlo en true si querés que destaque por ser SaaS
+    name: "BuscoTurno",
+    description: "Plataforma integral para la gestión y reserva de turnos online para profesionales y comercios.",
+    logo: "/assets/buscoturno/icon.svg", // Recordá crear la carpeta y subir el logo
+    rating: { score: 4.8, count: 12 }, // Valores sugeridos, ajustalos a la realidad
+    downloads: "Web & PWA",
+    version: "1.1.0",
+    releaseDate: "Mayo 2026",
+    technologies: ["React", "Firebase", "Tailwind CSS", "Cloud Functions"],
+    screenshots: {
+        iphone: [], 
+        ipad: []
+    },
+    storeLinks: {
+        apple: "", // Si es solo web, podés dejarlo vacío
+        google: "", 
+        web: "https://www.buscoturno.app" // Agregamos este si tu componente lo soporta
+    }
+},
 
 ];
 

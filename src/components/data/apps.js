@@ -16,6 +16,51 @@ export const misApps = [
          },
     technologies: ["Kotlin", "Swift", "Jetpack Compose", "SwiftUI", "MVVM", "Dagger Hilt", "Supabase", "Firebase", "Admob"],  },
 
+
+    {
+    id: "donde-repostar",
+    isFeatured: false,
+    name: "Donde Repostar",
+    description: "Versión para España del ecosistema de precios de combustibles.",
+    fullDescription: "",
+    logo: "/assets/donderepostar/iconoDondeRepostar.png", // Asegúrate de subirlo a public/assets/
+    rating: { score: 4.0, count: 11 },
+    downloads: "1000+",
+    version: "1.0.1",
+    releaseDate: "Agosto 2026",
+    technologies: ["Kotlin", "SwiftUI", "MVVM", "Supabase", "Room", "Dagger Hilt", "Admob"],
+    screenshots: {
+    iphone: [], // Aunque esté vacío, debe ser un array
+    ipad: []    // Aunque esté vacío, debe ser un array
+  },
+    storeLinks: {
+      apple: "https://apps.apple.com/es/app/donde-repostar-gasolineras/id6800650798",
+      google: "https://play.google.com/store/apps/details?id=com.app.donderepostar"
+    }
+},
+
+{
+    id: "uk-fuels",
+    isFeatured: false,
+    name: "UK Fuel Prices & Petrol Map",
+    description: "Versión para Reino Unido del ecosistema de precios de combustibles.",
+    fullDescription: "",
+    logo: "/assets/ukfuels/iconoUKFuels.png", // Asegúrate de subirlo a public/assets/
+    rating: { score: 4.0, count: 11 },
+    downloads: "1000+",
+    version: "1.0.2",
+    releaseDate: "Julio 2026",
+    technologies: ["Kotlin", "SwiftUI", "MVVM", "Supabase", "Room", "Dagger Hilt", "Admob"],
+    screenshots: {
+    iphone: [], // Aunque esté vacío, debe ser un array
+    ipad: []    // Aunque esté vacío, debe ser un array
+  },
+    storeLinks: {
+      apple: "https://apps.apple.com/es/app/uk-fuel-prices-petrol-map/id6796651729",
+      google: "https://play.google.com/store/apps/details?id=com.app.ukfuelprices"
+    }
+},
+
   {
     id: "onde-abastecer",
     isFeatured: false,
@@ -25,7 +70,7 @@ export const misApps = [
     logo: "/assets/ondeabastecer/iconoOndeAbastecer.png", // Asegúrate de subirlo a public/assets/
     rating: { score: 4.0, count: 11 },
     downloads: "1400+",
-    version: "1.0.5",
+    version: "2.0.6",
     releaseDate: "Octubre 2025",
     technologies: ["Kotlin", "SwiftUI", "MVVM", "Supabase", "Room", "Dagger Hilt", "Admob"],
     screenshots: {
@@ -46,7 +91,7 @@ export const misApps = [
     logo: "/assets/bencineraschile/iconobencineras.png", // Asegúrate de subirlo a public/assets/
     rating: { score: 5.0, count: 1 },
     downloads: "1000+",
-    version: "1.0.3",
+    version: "1.0.5",
     releaseDate: "Enero 2025",
     technologies: ["Kotlin", "Jetpack Compose", "MVVM", "Firebase", "Supabase", "Room", "Dagger Hilt"], 
     screenshots: {

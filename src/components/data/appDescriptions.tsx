@@ -21,6 +21,48 @@ export const descriptions = {
     </ul>
   `,
 
+"uk-fuels": `
+    <p class="mb-4">Herramienta móvil enfocada en el mercado del Reino Unido, diseñada para optimizar el gasto de combustible (gasolina y diésel) mediante un mapa interactivo en tiempo real. Funciona de manera <strong>100% anónima y privada</strong>, garantizando la privacidad del usuario al no requerir creación de cuenta ni recolección de datos personales.</p>
+    
+    <h4 class="text-sm font-bold text-blue-500 dark:text-blue-400 mb-2 mt-4 uppercase tracking-wider">Proyecto y Producto</h4>
+    <ul class="list-disc pl-5 space-y-1.5 mb-4 marker:text-blue-500">
+      <li>Adaptación integral del producto (UI/UX) a los estándares y métricas del conductor británico.</li>
+      <li>Desarrollo de un <strong>Planificador Inteligente de Rutas</strong> que permite personalizar el radio de búsqueda para descubrir las mejores ofertas a pocos minutos de autopistas y vías principales.</li>
+      <li>Implementación de <strong>Perfiles de Vehículo</strong> (capacidad del tanque y tipo de combustible) que, combinados con filtros de marcas (Tesco, ASDA, Shell, BP, etc.), calculan el coste exacto de llenar el depósito incluyendo descuentos de fidelización.</li>
+    </ul>
+    
+    <h4 class="text-sm font-bold text-blue-500 dark:text-blue-400 mb-2 mt-4 uppercase tracking-wider">Desafío Técnico</h4>
+    <ul class="list-disc pl-5 space-y-1.5 marker:text-blue-500">
+      <li>Procesamiento avanzado de datos e integración de APIs para sincronizar precios precisos en tiempo real para todos los tipos de combustible local (Unleaded E10/E5, Diesel B7 y Premium).</li>
+      <li>Arquitectura e implementación de un sistema de <strong>Alertas de Precios personalizadas</strong>, enviando notificaciones push instantáneas a los usuarios ante caídas de tarifas en sus estaciones favoritas.</li>
+      <li>Gestión de caché local (<strong>Room Database</strong>) y arquitectura reactiva (<strong>MVVM con StateFlow</strong>) para asegurar transiciones fluidas en el mapa interactivo y soporte offline en zonas rurales con baja cobertura.</li>
+      <li>Construcción de un motor de búsqueda geoespacial optimizado en el cliente para aplicar múltiples filtros simultáneos (distancia, marca, combustible) sin impacto en el rendimiento.</li>
+    </ul>
+  `,
+
+
+"donde-repostar": `
+    <p class="mb-4">Herramienta móvil diseñada para consultar los precios actualizados en España de gasolina, diésel, GLP y otros combustibles. Funciona de manera <strong>100% anónima y privada</strong>, maximizando el ahorro del conductor a través de un mapa interactivo sin requerir registro ni cesión de datos personales.</p>
+    
+    <h4 class="text-sm font-bold text-blue-500 dark:text-blue-400 mb-2 mt-4 uppercase tracking-wider">Proyecto y Producto</h4>
+    <ul class="list-disc pl-5 space-y-1.5 mb-4 marker:text-blue-500">
+      <li>Creación de una solución integral respaldada por experiencia internacional en el desarrollo de herramientas de movilidad (Argentina, Chile, Portugal y Reino Unido).</li>
+      <li>Integración de un <strong>Planificador de Rutas</strong> para visualizar y comparar gasolineras disponibles a lo largo de un trayecto específico (origen-destino).</li>
+      <li>Sistema de <strong>Gestión de Tarjetas de Descuento</strong> (Repsol Waylet, Cepsa Gow, Galp, etc.) que permite a los usuarios configurar sus planes de fidelización para calcular estimaciones precisas del precio final por litro.</li>
+    </ul>
+    
+    <h4 class="text-sm font-bold text-blue-500 dark:text-blue-400 mb-2 mt-4 uppercase tracking-wider">Desafío Técnico</h4>
+    <ul class="list-disc pl-5 space-y-1.5 marker:text-blue-500">
+      <li>Consumo y normalización masiva de datos abiertos oficiales (<strong>Geoportal del Ministerio</strong>), procesando horarios y fechas exactas de actualización para más de 11.000 gasolineras a nivel nacional.</li>
+      <li>Desarrollo de un algoritmo visual en el mapa interactivo (<strong>Clustering y Código de Colores</strong>) que calcula y compara en tiempo real el precio de cada estación frente a la media de su provincia.</li>
+      <li>Arquitectura e implementación de un sistema de <strong>Alertas de Precios mediante Notificaciones Push</strong>, permitiendo a los usuarios monitorear variaciones de tarifas en sus estaciones favoritas.</li>
+      <li>Construcción de un sistema reactivo con <strong>Coroutines y Flow</strong> para optimizar los datos del conductor, integrando Intents nativos de navegación (Google Maps, Waze) sin latencia.</li>
+    </ul>
+  `
+  ,
+
+
+
   
   "stockear": `
     <p class="mb-4">Gestor de inventario diseñado para eliminar la fricción operativa en pequeños negocios. Permite registrar y actualizar el stock en segundos utilizando la cámara (escáner de códigos de barras) y el micrófono (reconocimiento de voz) del dispositivo.</p>
@@ -87,21 +129,23 @@ export const descriptions = {
     </ul>
   `,
 
-  "onde-abastecer": `
-    <p class="mb-4">Plataforma móvil enfocada en el mercado de Portugal para ayudar a los conductores a encontrar las estaciones de servicio más económicas y optimizar el costo de combustible mediante geolocalización.</p>
+"onde-abastecer": `
+    <p class="mb-4">Plataforma móvil totalmente rediseñada para el mercado de Portugal, orientada a maximizar el ahorro diario en combustible (Gasolina 95/98, Diésel, GLP). Con una interfaz moderna y 100% gratuita, ayuda a los conductores a localizar las estaciones más económicas en tiempo real.</p>
     
     <h4 class="text-sm font-bold text-blue-500 dark:text-blue-400 mb-2 mt-4 uppercase tracking-wider">Proyecto y Producto</h4>
     <ul class="list-disc pl-5 space-y-1.5 mb-4 marker:text-blue-500">
-      <li>Desarrollo end-to-end y localización de la aplicación para el mercado europeo, asegurando una experiencia de usuario ágil y adaptada a las necesidades de los conductores portugueses.</li>
-      <li>Diseño de herramientas centradas en la previsión de gastos, incluyendo la configuración de la capacidad del vehículo para proyecciones precisas y la gestión rápida de estaciones favoritas.</li>
+      <li>Renovación integral de UI/UX, incorporando cartografía en modo oscuro y un <strong>Modo Conducción</strong> que desplaza automáticamente el mapa siguiendo la ubicación del usuario en ruta.</li>
+      <li>Desarrollo de un sistema de <strong>Gestión Inteligente de Descuentos</strong> que permite configurar tarjetas de fidelidad y cupones, proyectando el precio final real directamente sobre el mapa.</li>
+      <li>Integración de <strong>Estadísticas e Inteligencia Artificial (IA)</strong> para generar sugerencias de abastecimiento personalizadas y visualizar comparativas del precio actual frente a la media.</li>
+      <li>Implementación de filtros avanzados (BP, Galp, Repsol, Prio, Auchan, Intermarché, E.Leclerc) y gestión de favoritos para un acceso ágil a históricos de precios.</li>
     </ul>
     
     <h4 class="text-sm font-bold text-blue-500 dark:text-blue-400 mb-2 mt-4 uppercase tracking-wider">Desafío Técnico</h4>
     <ul class="list-disc pl-5 space-y-1.5 marker:text-blue-500">
-      <li>Integración de <strong>SDK de Mapas</strong> con renderizado avanzado de POIs y clustering.</li>
-      <li>Implementación de arquitectura reactiva utilizando <strong>Kotlin Coroutines y StateFlow</strong> para ejecutar filtros en tiempo real (por tipo de combustible, marca y distancia).</li>
-      <li>Desarrollo de sistema para calcular y proyectar el costo exacto de llenar el tanque, cruzando los datos configurados por el usuario con el consumo de APIs de precios actualizados.</li>
-      <li>Estructuración de una base de datos local robusta mediante <strong>Room/SQLite</strong>.</li>
+      <li>Arquitectura e implementación de un sistema de <strong>Alertas de Precios</strong> mediante notificaciones push, configurables por estación y tipo de combustible para advertir caídas de tarifas.</li>
+      <li>Desarrollo de un motor de renderizado dinámico en el mapa que recalcula en tiempo real el costo por litro tras aplicar la lógica matemática de cupones y descuentos cruzados.</li>
+      <li>Procesamiento en el cliente para la ingesta de datos actualizados y la generación de métricas comparativas impulsadas por IA sin comprometer el rendimiento de la aplicación.</li>
+      <li>Uso de <strong>Kotlin Coroutines y StateFlow</strong> para garantizar transiciones fluidas de la UI, sincronización reactiva de la ubicación GPS y actualizaciones de precios sin latencia.</li>
     </ul>
   `,
 

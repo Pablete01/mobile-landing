@@ -1,0 +1,87 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { appData as siteData } from "../../data"; 
+---
+
+<Layout 
+  title="Terms and Conditions (EULA) | UK Fuel Prices" 
+  description="Terms and conditions of use for UK Fuel Prices & Petrol Map by El Mate Company"
+  appData={siteData}
+>
+    <div class="max-w-4xl mx-auto px-4 py-20 mt-16">
+        <div class="flex items-center gap-4 mb-6">
+            <img src="/assets/ukfuels/iconoUKFuels.png" alt="UK Fuel Prices Icon" class="w-16 h-16 rounded-2xl shadow-md border border-gray-100 dark:border-gray-800" />
+            <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">El Mate Company</span>
+                <h1 class="text-3xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white">
+                    Terms & Conditions (EULA)
+                </h1>
+            </div>
+        </div>
+
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-8 font-semibold">
+            Last updated: September 2026 • Effective Date: September 2026
+        </p>
+        
+        <div class="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed space-y-6">
+            <p>
+                By downloading, installing, or using the mobile application <strong>UK Fuel Prices & Petrol Map</strong> (the "App"), you agree to be bound by these Terms and Conditions of Use ("Terms"). This App is developed and operated by Pablo Cavallero under the trade name <strong>El Mate Company</strong> ("we", "our", or "us"). If you do not agree to these Terms, please do not use the App.
+            </p>
+
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4">1. Service Description & Data Disclaimer</h2>
+            <ul class="list-disc pl-6 space-y-2">
+                <li>UK Fuel Prices provides drivers with retail petrol, diesel, and alternative fuel price comparisons, EV charging points, station amenities, and route fuel calculations across the United Kingdom.</li>
+                <li>Fuel prices and station data are compiled from official published feeds, public transparency initiatives, and open data sources.</li>
+                <li><strong>Price Accuracy Notice:</strong> While we strive to display timely and accurate information, fuel prices are set by individual retailers and may fluctuate throughout the day. El Mate Company does not guarantee 100% real-time accuracy at the pump and shall not be held liable for differences between in-app prices and prices charged at the physical station.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4">2. Safe Driving & Road Safety</h2>
+            <div class="bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 p-5 rounded-xl">
+                <p class="text-amber-900 dark:text-amber-200 font-semibold mb-2">Important Safety Notice:</p>
+                <p class="text-amber-800 dark:text-amber-300 text-sm md:text-base">
+                    <strong>NEVER operate or interact with the App while actively driving a motor vehicle.</strong> Always adhere strictly to UK road traffic laws, including Regulation 110 of the Road Vehicles (Construction and Use) Regulations 1986 regarding mobile devices. Plan your route and stops prior to driving, or have a passenger operate the device.
+                </p>
+            </div>
+
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4">3. Free Version & In-App Advertising</h2>
+            <p>
+                The standard version of UK Fuel Prices is provided free of charge. To support backend infrastructure, API requests, and continuous maintenance, discrete advertisements are served via Google AdMob.
+            </p>
+
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4">4. UK Fuel Prices PRO - One-Time Purchase (Lifetime)</h2>
+            <div class="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 p-6 rounded-2xl space-y-3">
+                <p class="font-bold text-blue-900 dark:text-blue-200 text-lg">In-App Purchase Details:</p>
+                <ul class="list-disc pl-6 space-y-2 text-blue-950 dark:text-blue-300 text-sm md:text-base">
+                    <li><strong>PRO Features:</strong> Removing all third-party advertisements, unlocking unlimited smart route calculations, and providing premium pitstop recommendations.</li>
+                    <li><strong>One-Time Payment (Lifetime Access):</strong> UK Fuel Prices PRO is offered as a non-recurring, single one-time payment. It is NOT an auto-renewing subscription. There are no recurring monthly or annual charges.</li>
+                    <li><strong>Payment & Processing:</strong> Payments are processed securely and charged to your Apple ID (App Store) or Google Play account upon purchase confirmation.</li>
+                    <li><strong>Restore Purchases:</strong> You may restore your lifetime PRO purchase at any time on compatible devices signed in with the same Apple ID or Google account by using the "Restore Purchases" button in the App.</li>
+                    <li><strong>Refunds:</strong> All refund requests are governed directly by Apple App Store or Google Play Store policies.</li>
+                </ul>
+            </div>
+
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4">5. Intellectual Property</h2>
+            <p>
+                All software code, graphical design, original assets, and branding for UK Fuel Prices are the intellectual property of El Mate Company. Third-party brand logos (e.g., BP, Shell, Esso, Tesco, Asda, Sainsbury's, Morrisons) belong to their respective trademark holders and are utilized strictly for informational identification purposes.
+            </p>
+
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4">6. Limitation of Liability</h2>
+            <p>
+                To the maximum extent permitted by English law, El Mate Company shall not be liable for any indirect, incidental, or consequential damages resulting from your use of the App, navigation routing, or reliance upon fuel prices.
+            </p>
+
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4">7. Contact Information</h2>
+            <p>
+                If you have questions regarding these Terms, please contact us at:
+            </p>
+            <div class="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-2xl border border-gray-200 dark:border-gray-700">
+                <p class="font-bold text-gray-900 dark:text-white">El Mate Company</p>
+                <p class="text-gray-600 dark:text-gray-300">Pablo Cavallero</p>
+                <p class="text-blue-600 dark:text-blue-400">
+                    <a href="mailto:elmatecompany@gmail.com">elmatecompany@gmail.com</a>
+                </p>
+                <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Website: <a href="https://www.elmatecompany.com" class="underline">www.elmatecompany.com</a></p>
+            </div>
+        </div>
+    </div>
+</Layout>

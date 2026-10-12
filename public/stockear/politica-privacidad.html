@@ -49,12 +49,38 @@
         <li><strong>Tiempo real:</strong> El uso de la cámara ocurre de manera efímera y exclusivamente durante el instante en el que decides escanear un producto.</li>
     </ul>
 
-    <h2>2. Integración con Google Drive (Copias de Seguridad)</h2>
-    <p>Para proteger tus datos y permitirte recuperar tu inventario, Stockear ofrece una función de copia de seguridad opcional conectada a tu cuenta de Google.</p>
+    <h2>2. Integración con Servicios de Google y Datos de Usuario (Google Drive API)</h2>
+    <p>Stockear ofrece una función opcional de copia de seguridad y sincronización en la nube mediante los servicios de Google.</p>
+    
+    <h3>a. Datos de usuario a los que la aplicación tiene acceso (Acceso a datos)</h3>
+    <p>Cuando decides conectar tu cuenta de Google, Stockear únicamente solicita acceso a:</p>
     <ul>
-        <li><strong>Acceso y almacenamiento:</strong> Si decides utilizar esta función, la aplicación solicitará permisos de lectura y escritura en tu Google Drive para crear y actualizar un archivo exclusivo de inventario.</li>
-        <li><strong>Privacidad absoluta:</strong> Los datos de tu inventario se guardan directamente en tu cuenta personal de Google Drive. Nosotros no almacenamos, no interceptamos y no tenemos acceso a tus archivos de inventario ni a la información contenida en tu Google Drive.</li>
-        <li><strong>Cumplimiento normativo de Google:</strong> El uso y la transferencia a cualquier otra aplicación de la información recibida de las APIs de Google por parte de Stockear cumplirá con la <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank">Política de Datos de Usuario de los Servicios API de Google</a>, incluidos los requisitos de <em>Uso Limitado</em>.</li>
+        <li><strong>Información básica del perfil y correo electrónico:</strong> Obtenida a través de Google Sign-In con el fin exclusivo de identificar la cuenta conectada en la interfaz de la aplicación.</li>
+        <li><strong>Archivos creados por la aplicación (Ámbito: <code>https://www.googleapis.com/auth/drive.file</code>):</strong> La aplicación únicamente accede, lee y modifica el archivo de hoja de cálculo de respaldo (<em>Stockear_Inventario</em>) que ella misma crea en tu Google Drive. <strong>Stockear NO solicita acceso general a tu Google Drive ni a ningún otro archivo u hoja de cálculo privada que no haya sido creada por la propia aplicación.</strong></li>
+    </ul>
+
+    <h3>b. Cómo utiliza la aplicación los datos de Google (Uso de datos)</h3>
+    <ul>
+        <li><strong>Autenticación y sincronización:</strong> Los datos de perfil se usan para autenticar la sesión del usuario. El acceso a Drive se utiliza exclusivamente para crear, leer y actualizar la hoja de cálculo de respaldo con los productos, existencias y movimientos de tu inventario.</li>
+        <li><strong>No compartición:</strong> No transferimos, no vendemos ni compartimos los datos obtenidos de Google con herramientas de analítica, terceros ni entidades publicitarias.</li>
+        <li><strong>Cumplimiento de la Política de Datos de Google:</strong> El uso y la transferencia a cualquier otra aplicación de la información recibida a través de las APIs de Google por parte de Stockear se ajusta estrictamente a la <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank">Política de Datos de Usuario de los Servicios de las APIs de Google</a>, incluidos los requisitos de <em>Uso Limitado (Limited Use)</em>.</li>
+    </ul>
+
+    <h3>c. Mecanismos de protección y seguridad de datos sensibles</h3>
+    <p>La seguridad de tus datos es prioritaria. Implementamos las siguientes medidas técnicas:</p>
+    <ul>
+        <li><strong>Cifrado en tránsito:</strong> Toda la comunicación entre la aplicación y los servidores de Google se realiza exclusivamente a través de conexiones seguras y cifradas mediante protocolos estándar <strong>HTTPS (TLS 1.2 / TLS 1.3)</strong>.</li>
+        <li><strong>Gestión segura de credenciales y tokens:</strong> Stockear no almacena tus contraseñas de Google. La autorización se realiza mediante tokens temporales OAuth 2.0 gestionados por el sistema operativo Android (Google Play Services) de forma segura.</li>
+        <li><strong>Almacenamiento local protegido:</strong> Los datos de tu inventario se guardan localmente en una base de datos SQLite/Room aislada dentro de la sandbox protegida del sistema operativo de tu dispositivo, inaccesible por otras aplicaciones.</li>
+        <li><strong>Sin servidores intermedios propios:</strong> Stockear no transmite tus datos ni inventario a ningún servidor externo propietario; la conexión es directa y punto a punto entre tu dispositivo móvil y la API oficial de Google Drive.</li>
+    </ul>
+
+    <h3>d. Conservación y eliminación de datos de Google (Retención y borrado)</h3>
+    <ul>
+        <li><strong>Retención:</strong> Stockear no retiene datos personales de Google en servidores externos. Los tokens de autenticación se mantienen únicamente en el dispositivo mientras mantengas la sesión activa.</li>
+        <li><strong>Eliminación / Desvinculación desde la app:</strong> Puedes cerrar sesión y desvincular tu cuenta de Google en cualquier momento desde la sección <em>Ajustes &gt; Cerrar Sesión</em> en Stockear. Al hacerlo, todos los tokens y credenciales de acceso se destruyen inmediatamente del dispositivo.</li>
+        <li><strong>Revocación de permisos:</strong> Puedes revocar el acceso de Stockear a tu cuenta de Google en cualquier momento visitando la configuración de seguridad de tu cuenta de Google en: <a href="https://myaccount.google.com/permissions" target="_blank">https://myaccount.google.com/permissions</a>.</li>
+        <li><strong>Eliminación de la copia de respaldo:</strong> Dado que el archivo de respaldo reside en tu propia cuenta de Google Drive, tienes el control total para eliminar el archivo <em>Stockear_Inventario</em> directamente desde Google Drive en cualquier momento.</li>
     </ul>
 
     <h2>3. Compras Integradas y Versión PRO</h2>

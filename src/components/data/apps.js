@@ -12,7 +12,8 @@ export const misApps = [
     releaseDate: "Abril 2023",
     storeLinks: { 
         apple: "https://apps.apple.com/ar/app/id6738704543",
-        google: "https://play.google.com/store/apps/details?id=com.app.dondecargar"
+        google: "https://play.google.com/store/apps/details?id=com.app.dondecargar",
+        web: "/dondecargar"
          },
     technologies: ["Kotlin", "Swift", "Jetpack Compose", "SwiftUI", "MVVM", "Dagger Hilt", "Supabase", "Firebase", "Admob"],  },
 
@@ -56,8 +57,9 @@ export const misApps = [
     ipad: []    // Aunque esté vacío, debe ser un array
   },
     storeLinks: {
-      apple: "https://apps.apple.com/es/app/uk-fuel-prices-petrol-map/id6796651729",
-      google: "https://play.google.com/store/apps/details?id=com.app.ukfuelprices"
+      apple: "https://apps.apple.com/gb/app/uk-fuel-prices-petrol-map/id6796651729",
+      google: "https://play.google.com/store/apps/details?id=com.app.ukfuelprices",
+      web: "/ukfuels"
     }
 },
 
@@ -279,7 +281,7 @@ description: `
         <li><strong>Autonomía:</strong> Botón físico de encendido/apagado (con modo de ahorro de energía) y funcionamiento a batería con carga USB.</li>
         <li><strong>Sensores Inteligentes:</strong> Detección automática y precisa de "mate cebado" y "mate tomado".</li>
         <li><strong>Modos de Uso:</strong> Configuración dinámica para tomar solo o gestionar una ronda de amigos.</li>
-        <li><strong>Gestión de Rondas:</strong> Contador de mates histórico y gestor de turno automático en pantalla OLED.</li>
+        <li><strong>Gestión de Rondas:</strong> Contador de mates histórico y gestor de turno automático en pantalla integrada con diseños personalizables.</li>
         <li><strong>Avisos Sonoros:</strong> Temporizador ajustable que suena si alguien se demora mucho en tomar el mate.</li>
         <li><strong>Control Térmico:</strong> Alarma acústica ajustable para avisar si el mate se está enfriando.</li>
         <li><strong>Rangos Personalizables:</strong> Configuración de indicadores visuales para temperatura baja, ideal y alta.</li>

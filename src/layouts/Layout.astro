@@ -3,36 +3,39 @@
 /** biome-ignore-all lint/correctness/noUnusedVariables: Props and config are passed to nested components */
 
 import Footer from "@footer/Footer";
-import type { LayoutWithAppDataProps } from "@t/layout";
 import FloatingNavbar from "@ui/navigation/FloatingNavbar";
 import BackToTop from "@ui/shared/BackToTop";
 import { appData as defaultAppData } from "../data";
 
-
-//interface Props extends LayoutWithAppDataProps {}
-
-// Definimos las Props de forma explícita y sencilla
 interface Props {
   title: string;
   description?: string;
   appData?: any;
+  lang?: string;
+  keywords?: string[];
+  structuredData?: Record<string, any> | Record<string, any>[];
 }
 
-
-const { title, description, appData } = Astro.props;
+const { title, description, appData, lang = "en", keywords, structuredData } = Astro.props;
 const navData = appData || defaultAppData;
+const effectiveKeywords: string[] = keywords || navData.keywords || defaultAppData.keywords;
 const canonicalURL = Astro.site
 	? new URL(Astro.url.pathname, Astro.site)
 	: Astro.url;
+const ogImageURL = Astro.site && navData.logo
+	? new URL(navData.logo, Astro.site).toString()
+	: navData.logo;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-<meta name="keywords" content={defaultAppData.keywords.join(", ")} />
+    {effectiveKeywords && effectiveKeywords.length > 0 && (
+      <meta name="keywords" content={effectiveKeywords.join(", ")} />
+    )}
     
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
@@ -42,16 +45,21 @@ const canonicalURL = Astro.site
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:type" content="website" />
     {description && <meta property="og:description" content={description} />}
+    {ogImageURL && <meta property="og:image" content={ogImageURL} />}
     
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     {description && <meta name="twitter:description" content={description} />}
+    {ogImageURL && <meta name="twitter:image" content={ogImageURL} />}
     
-      <link rel="icon" type="image/png" sizes="32x32" href={navData.logo} />
-      <link rel="icon" type="image/png" sizes="16x16" href={navData.logo} />
-      <link rel="icon" sizes="192x192" href={navData.logo} />
-      <link rel="icon" sizes="512x512" href={navData.logo} />
-      <script is:inline>
+    <link rel="icon" type="image/png" sizes="32x32" href={navData.logo} />
+    <link rel="icon" type="image/png" sizes="16x16" href={navData.logo} />
+    <link rel="icon" sizes="192x192" href={navData.logo} />
+    <link rel="icon" sizes="512x512" href={navData.logo} />
+    {structuredData && (
+      <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    )}
+    <script is:inline>
       const theme = localStorage.getItem('theme') || 'system';
       document.documentElement.classList.remove('light', 'dark');
       
@@ -69,11 +77,9 @@ const canonicalURL = Astro.site
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800;900&display=swap" rel="stylesheet">
   </head>
 
-  <!-- TODO: Prevent page scroll from jumping to the top on rapid F5 refreshes -->
-
   <body class="bg-gray-50 text-gray-900 dark:bg-black dark:text-white">
 	<FloatingNavbar logo={navData.logo} title={navData.name} storeLinks={navData.storeLinks} socialLinks={defaultAppData.socialLinks} client:load />
-    <div class="mx-auto h-screen max-w-full px-2 lg:max-w-[1500px]">
+    <div class="mx-auto min-h-screen max-w-full px-2 lg:max-w-[1500px]">
       <main><slot /></main>
       <Footer name={navData.name} logo={navData.logo} description={navData.description} client:load />
     </div>

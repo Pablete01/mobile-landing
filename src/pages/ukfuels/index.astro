@@ -1,93 +1,250 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { appData as siteData } from "../../data";
 
 const appInfo = {
     name: "UK Fuel Prices & Petrol Map",
-    tagline: "Find the Cheapest Petrol, Diesel & EV Chargers Across the UK",
-    description: "Compare real-time fuel prices from thousands of stations nationwide. Save money on every fill-up with smart route pitstops, personal garage tracking, and instant price alerts.",
+    tagline: "Live UK Petrol (E10 & E5) & Diesel Prices Today — Per Litre, Per Gallon & Interactive Station Map",
+    description: "Check current UK petrol and diesel prices today per litre (p/L) and per UK imperial gallon (£/gal). Compare live forecourt prices across thousands of UK petrol stations, find where to buy E5 Super Unleaded, and stack Tesco Clubcard, Sainsbury's & Esso Nectar, Shell Go+, BPme, Asda Rewards & Morrisons More discounts.",
     logo: "/assets/ukfuels/iconoUKFuels.png",
+    keywords: [
+        "uk fuel prices",
+        "petrol prices uk",
+        "diesel prices uk",
+        "how much is diesel per gallon in the uk",
+        "uk price per gallon petrol",
+        "cost of a gallon of petrol uk",
+        "price per litre petrol uk",
+        "petrol map uk",
+        "fuel map uk",
+        "where to get e5 petrol",
+        "super unleaded e5 price uk",
+        "uk fuel card prices",
+        "tesco clubcard fuel prices",
+        "sainsburys nectar fuel",
+        "cheapest petrol near me uk"
+    ],
     storeLinks: {
-        apple: "https://apps.apple.com/app/id6759508195",
+        apple: "https://apps.apple.com/gb/app/uk-fuel-prices-petrol-map/id6796651729",
         google: "https://play.google.com/store/apps/details?id=com.app.ukfuelprices"
     }
 };
 
+const ukFuelBenchmarks = [
+    {
+        grade: "Standard Unleaded (E10)",
+        code: "E10 (95 RON)",
+        pencePerLitre: 136.9,
+        poundsPerLitre: "£1.37",
+        poundsPerUkGallon: "£6.22",
+        poundsPerUsGallon: "£5.18",
+        tank50L: "£68.45",
+        badgeColor: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300"
+    },
+    {
+        grade: "Super Unleaded (E5)",
+        code: "E5 (97–99 RON)",
+        pencePerLitre: 149.9,
+        poundsPerLitre: "£1.50",
+        poundsPerUkGallon: "£6.81",
+        poundsPerUsGallon: "£5.67",
+        tank50L: "£74.95",
+        badgeColor: "bg-teal-100 text-teal-800 dark:bg-teal-900/40 dark:text-teal-300"
+    },
+    {
+        grade: "Standard Diesel (B7)",
+        code: "B7 Diesel",
+        pencePerLitre: 142.9,
+        poundsPerLitre: "£1.43",
+        poundsPerUkGallon: "£6.50",
+        poundsPerUsGallon: "£5.41",
+        tank50L: "£71.45",
+        badgeColor: "bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100"
+    },
+    {
+        grade: "Premium Diesel",
+        code: "V-Power / Ultimate (B7P)",
+        pencePerLitre: 158.9,
+        poundsPerLitre: "£1.59",
+        poundsPerUkGallon: "£7.22",
+        poundsPerUsGallon: "£6.01",
+        tank50L: "£79.45",
+        badgeColor: "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300"
+    }
+];
+
+const loyaltySchemes = [
+    {
+        brand: "Tesco",
+        scheme: "Tesco Clubcard",
+        saving: "~2p/L off & Clubcard points",
+        details: "Collect Clubcard points on fuel at Tesco petrol stations and unlock exclusive Clubcard fuel promotions."
+    },
+    {
+        brand: "Sainsbury's",
+        scheme: "Sainsbury's Nectar",
+        saving: "1p–2p/L in Nectar points",
+        details: "Swipe your Nectar card or app at Sainsbury's forecourts to collect points on every litre of unleaded or diesel."
+    },
+    {
+        brand: "Esso",
+        scheme: "Esso Nectar",
+        saving: "2p/L off with Nectar points",
+        details: "Earn Nectar points at participating Esso stations or redeem 300 Nectar points for an instant 5p/L discount."
+    },
+    {
+        brand: "Shell",
+        scheme: "Shell Go+",
+        saving: "Fuel rewards every 10 visits",
+        details: "Save on Shell V-Power and regular fuel, plus get 10% off Shell Café hot drinks and deli food."
+    },
+    {
+        brand: "BP",
+        scheme: "BPme Rewards",
+        saving: "1p–2p/L in points",
+        details: "Earn points automatically on BP Regular and BP Ultimate unleaded & diesel, redeemable against future fill-ups."
+    },
+    {
+        brand: "Morrisons & Asda",
+        scheme: "Morrisons More & Asda Rewards",
+        saving: "Up to 5p/L off coupons",
+        details: "Stack supermarket spend fuel vouchers (5p/L off) and Asda Cashpot missions to see your true net pump price."
+    }
+];
+
 const features = [
     {
         icon: "⛽",
-        title: "Live Fuel Prices",
-        description: "Accurate, daily-updated prices for Unleaded (E10), Super Unleaded (E5), Standard Diesel (B7), Premium Diesel, and alternative fuels."
+        title: "Live UK Petrol & Diesel Prices",
+        description: "Daily-updated UK CMA Open Data feed covering Unleaded (E10), Super Unleaded (E5), Standard Diesel (B7), and Premium Diesel in pence per litre (p/L)."
     },
     {
         icon: "🗺️",
-        title: "Interactive Smart Map",
-        description: "Visual colour-coded station pins help you spot the cheapest petrol stations in your area at a single glance."
+        title: "Interactive UK Petrol Station Map",
+        description: "Colour-coded green-to-red station pins show the cheapest petrol and diesel stations in London, Manchester, Birmingham, Leeds, Glasgow, and across Britain."
+    },
+    {
+        icon: "💳",
+        title: "1-Tap UK Loyalty & Fuel Card Discounts",
+        description: "Activate Tesco Clubcard, Nectar, Shell Go+, BPme, Asda Rewards, Morrisons More, Gulf Oomph, or Texaco Star Rewards to see your net pump price on every pin."
     },
     {
         icon: "🛣️",
-        title: "Route Optimizer & Pitstops",
-        description: "Planning a road trip? Calculate the optimal refueling stop along your journey to avoid overpriced motorway service stations."
+        title: "Motorway & Route Pitstop Optimizer",
+        description: "Avoid paying 25p/L extra at motorway service stations. Plot your route and find the cheapest supermarket or branded forecourt within 0.5 to 5 miles."
     },
     {
         icon: "🚗",
-        title: "Garage & Fuel Logbook",
-        description: "Register your vehicles, track average MPG or L/100 km, calculate full tank range, and log all fuel expenses with ease."
+        title: "Vehicle Garage, MPG & Fuel Logbook",
+        description: "Save your car's tank size in litres and economy in MPG, calculate exact full-tank fill-up cost, and export PDF or JSON expense backups."
     },
     {
-        icon: "⚡",
-        title: "EV Charging Stations",
-        description: "Locate electric vehicle charging points with live availability, power levels (kW), and compatible connector types."
+        icon: "🔔",
+        title: "9:00 AM Smart Price & Savings Alerts",
+        description: "Bookmark your local petrol stations and receive instant price drop notifications and morning discount reminders."
+    }
+];
+
+const faqs = [
+    {
+        question: "How much is a gallon of petrol and diesel in the UK today?",
+        answer: "In the UK, fuel is sold at the pump in pence per litre (p/L), while 1 UK imperial gallon equals 4.54609 litres. At a typical UK price of 136.9p/L (£1.369/L) for Standard Unleaded (E10), 1 UK imperial gallon of petrol costs £6.22 (or £5.18 per US gallon). At 142.9p/L (£1.429/L) for Standard Diesel (B7), 1 UK imperial gallon of diesel costs £6.50."
     },
     {
-        icon: "🔒",
-        title: "100% Anonymous & Private",
-        description: "No account required. Your vehicle garage and fuel logs stay securely on your personal device."
+        question: "How do you convert UK pence per litre (p/L) to pounds per gallon (£/gal)?",
+        answer: "Multiply the pump price in pence per litre by 4.54609 and divide by 100. For example: 140p/L × 4.54609 ÷ 100 = £6.36 per UK imperial gallon. For a US gallon (3.78541 litres), multiply p/L by 3.78541 and divide by 100."
+    },
+    {
+        question: "Where can I find Super Unleaded (E5) petrol near me in the UK?",
+        answer: "Standard UK petrol is E10 (up to 10% renewable ethanol, 95 RON). Classic cars, high-performance engines, and some older vehicles require E5 Super Unleaded (97–99 RON, such as Shell V-Power, BP Ultimate, Esso Synergy Supreme+ 99, or Tesco Momentum 99). In the UK Fuel Prices app, simply select the 'E5' filter on the petrol map to see only stations stocking E5 and compare their live prices."
+    },
+    {
+        question: "Which UK supermarket or petrol station has the cheapest fuel today?",
+        answer: "Supermarket forecourts—Asda, Tesco, Sainsbury's, and Morrisons—typically offer the lowest baseline petrol and diesel prices in the UK, often 4p to 12p per litre cheaper than branded high-street forecourts and up to 25p/L cheaper than motorway services. Using the UK Fuel Prices app, you can combine live supermarket pump prices with your Tesco Clubcard, Nectar, or Morrisons More discounts to find the lowest net price per litre."
+    }
+];
+
+const structuredData = [
+    {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "UK Fuel Prices & Petrol Map",
+        "operatingSystem": "iOS, Android",
+        "applicationCategory": "NavigationApplication",
+        "description": appInfo.description,
+        "url": "https://www.elmatecompany.com/ukfuels/",
+        "image": "https://www.elmatecompany.com/assets/ukfuels/iconoUKFuels.png",
+        "downloadUrl": [appInfo.storeLinks.apple, appInfo.storeLinks.google],
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "GBP"
+        }
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.map((faq) => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+            }
+        }))
     }
 ];
 ---
 
 <Layout 
-  title={`${appInfo.name} | El Mate Company`} 
+  title="UK Fuel Prices Today (Per Litre & Gallon) | Live Petrol & Diesel Map" 
   description={appInfo.description}
-  appData={siteData}
+  appData={appInfo}
+  lang="en-GB"
+  keywords={appInfo.keywords}
+  structuredData={structuredData}
 >
     <!-- HERO SECTION -->
-    <section class="pt-32 pb-20 px-4 max-w-5xl mx-auto text-center">
-        <div class="inline-block mb-6">
+    <section class="pt-28 pb-14 px-4 max-w-5xl mx-auto text-center">
+        <div class="inline-block mb-5">
             <img 
                 src={appInfo.logo} 
-                alt={appInfo.name} 
+                alt="UK Fuel Prices & Petrol Map App Icon" 
+                width="112"
+                height="112"
                 class="w-28 h-28 mx-auto rounded-3xl shadow-xl border-2 border-gray-100 dark:border-gray-800"
             />
         </div>
 
-        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-6">
-            {appInfo.name}
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-300 text-xs font-bold uppercase tracking-wider mb-4">
+            <span>🇬🇧 Official UK CMA Open Fuel Data • Live Forecourt Map</span>
+        </div>
+
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-5">
+            UK Fuel Prices Today: <span class="text-blue-600 dark:text-blue-400">Per Litre, Per Gallon & Petrol Map</span>
         </h1>
 
-        <p class="text-xl md:text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-4 max-w-2xl mx-auto">
+        <p class="text-lg md:text-xl font-semibold text-gray-700 dark:text-gray-200 mb-4 max-w-3xl mx-auto">
             {appInfo.tagline}
         </p>
 
-        <p class="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+        <p class="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
             {appInfo.description}
         </p>
 
         <!-- DOWNLOAD BUTTONS -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto mb-16">
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-lg mx-auto mb-8">
             <a 
                 href={appInfo.storeLinks.apple} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 class="w-full sm:w-auto flex items-center justify-center gap-3 bg-black text-white hover:bg-gray-800 font-bold px-8 py-4 rounded-2xl shadow-lg hover:scale-105 transition-all"
             >
-                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.64-.78 1.08-1.86.96-2.95-1 .04-2.13.65-2.78 1.41-.58.67-.99 1.77-.87 2.83 1.12.09 2.05-.51 2.69-1.29z"/>
                 </svg>
                 <div class="text-left">
                     <div class="text-xs uppercase font-medium">Download on the</div>
-                    <div class="text-sm font-bold">App Store</div>
+                    <div class="text-sm font-bold">App Store (iOS)</div>
                 </div>
             </a>
 
@@ -97,7 +254,7 @@ const features = [
                 rel="noopener noreferrer"
                 class="w-full sm:w-auto flex items-center justify-center gap-3 bg-blue-600 text-white hover:bg-blue-700 font-bold px-8 py-4 rounded-2xl shadow-lg hover:scale-105 transition-all"
             >
-                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M3.609 1.814L13.792 12 3.61 22.186a1.99 1.99 0 0 1-1.61-1.954V3.768c0-.825.602-1.535 1.609-1.954zm11.605 11.605l2.458 2.458-12.06 6.953 9.602-9.411zm0-2.838L5.612 1.17 17.672 8.12l-2.458 2.461zm1.414 1.419l3.541 2.043c.96.554.96 1.458 0 2.012l-3.541 2.043-2.122-2.123 2.122-2.975z"/>
                 </svg>
                 <div class="text-left">
@@ -106,14 +263,159 @@ const features = [
                 </div>
             </a>
         </div>
+
+        <!-- DESKTOP QR CODES (Converts the 91% Desktop Search Console traffic into mobile installs) -->
+        <div class="hidden md:flex items-center justify-center gap-8 max-w-2xl mx-auto p-5 rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-sm">
+            <div class="flex items-center gap-3 text-left">
+                <img
+                    src={`https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(appInfo.storeLinks.apple)}`}
+                    alt="QR Code to download UK Fuel Prices on iOS App Store"
+                    width="88"
+                    height="88"
+                    loading="lazy"
+                    class="w-22 h-22 rounded-xl border border-gray-200 p-1 bg-white"
+                />
+                <div>
+                    <div class="text-xs font-bold uppercase text-gray-500 dark:text-gray-400">iPhone & iPad</div>
+                    <div class="text-sm font-extrabold text-gray-900 dark:text-white">Scan for App Store</div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">Point your phone camera here</div>
+                </div>
+            </div>
+            <div class="h-14 w-px bg-gray-200 dark:bg-gray-800"></div>
+            <div class="flex items-center gap-3 text-left">
+                <img
+                    src={`https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(appInfo.storeLinks.google)}`}
+                    alt="QR Code to download UK Fuel Prices on Google Play"
+                    width="88"
+                    height="88"
+                    loading="lazy"
+                    class="w-22 h-22 rounded-xl border border-gray-200 p-1 bg-white"
+                />
+                <div>
+                    <div class="text-xs font-bold uppercase text-blue-600 dark:text-blue-400">Android Phones</div>
+                    <div class="text-sm font-extrabold text-gray-900 dark:text-white">Scan for Google Play</div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">Instant free installation</div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- FEATURES GRID -->
+    <!-- UK FUEL PRICE PER LITRE vs PER GALLON CALCULATOR & BENCHMARK TABLE -->
+    <section id="gallon-calculator" class="py-14 px-4 max-w-5xl mx-auto">
+        <div class="bg-white dark:bg-gray-900 rounded-3xl border border-gray-200 dark:border-gray-800 shadow-lg p-6 md:p-10">
+            <div class="text-center max-w-3xl mx-auto mb-8">
+                <h2 class="text-2xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-3">
+                    How Much Is Petrol & Diesel Per Litre and Per Gallon in the UK?
+                </h2>
+                <p class="text-sm md:text-base text-gray-600 dark:text-gray-300">
+                    UK petrol stations display prices in <strong>pence per litre (p/L)</strong>, while car fuel economy is measured in <strong>miles per imperial gallon (MPG)</strong>. Remember: <strong>1 UK Imperial Gallon = 4.54609 Litres</strong> (whereas 1 US Gallon = 3.78541 Litres).
+                </p>
+            </div>
+
+            <!-- INTERACTIVE CONVERTER -->
+            <div class="bg-blue-50/70 dark:bg-blue-950/30 border border-blue-200/80 dark:border-blue-800/60 rounded-2xl p-5 md:p-6 mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                    <div>
+                        <label for="uk-ppl-input" class="block text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-blue-300 mb-2">
+                            Enter Pump Price (pence per litre)
+                        </label>
+                        <div class="flex items-center gap-2">
+                            <input
+                                id="uk-ppl-input"
+                                type="number"
+                                step="0.1"
+                                min="80"
+                                max="250"
+                                value="136.9"
+                                class="w-full px-4 py-3 rounded-xl border border-blue-300 dark:border-blue-700 bg-white dark:bg-gray-900 text-xl font-extrabold text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            />
+                            <span class="text-base font-bold text-gray-700 dark:text-gray-300">p/L</span>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 mt-2.5">
+                            <button type="button" data-ppl="136.9" class="uk-preset-btn text-xs font-semibold px-2.5 py-1 rounded-lg bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 hover:border-blue-500">
+                                E10 (136.9p)
+                            </button>
+                            <button type="button" data-ppl="149.9" class="uk-preset-btn text-xs font-semibold px-2.5 py-1 rounded-lg bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 hover:border-blue-500">
+                                E5 Super (149.9p)
+                            </button>
+                            <button type="button" data-ppl="142.9" class="uk-preset-btn text-xs font-semibold px-2.5 py-1 rounded-lg bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 hover:border-blue-500">
+                                Diesel B7 (142.9p)
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3 md:col-span-2">
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-200 dark:border-gray-700">
+                            <div class="text-xs font-semibold text-gray-500 dark:text-gray-400">UK Imperial Gallon (4.546 L)</div>
+                            <div id="uk-gal-out" class="text-2xl md:text-3xl font-extrabold text-blue-600 dark:text-blue-400 mt-1">£6.22</div>
+                            <div class="text-[11px] text-gray-500 dark:text-gray-400">per UK gallon</div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-200 dark:border-gray-700">
+                            <div class="text-xs font-semibold text-gray-500 dark:text-gray-400">Price in Pounds per Litre</div>
+                            <div id="uk-litre-out" class="text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white mt-1">£1.37</div>
+                            <div class="text-[11px] text-gray-500 dark:text-gray-400">per litre (1,000 ml)</div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-200 dark:border-gray-700">
+                            <div class="text-xs font-semibold text-gray-500 dark:text-gray-400">Full 50-Litre Tank Cost</div>
+                            <div id="uk-tank-out" class="text-xl md:text-2xl font-extrabold text-emerald-600 dark:text-emerald-400 mt-1">£68.45</div>
+                            <div class="text-[11px] text-gray-500 dark:text-gray-400">55L Diesel tank: <span id="uk-tank55-out">£75.30</span></div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-200 dark:border-gray-700">
+                            <div class="text-xs font-semibold text-gray-500 dark:text-gray-400">US Gallon (3.785 L) & Cost/Mile</div>
+                            <div id="us-gal-out" class="text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white mt-1">£5.18</div>
+                            <div class="text-[11px] text-gray-500 dark:text-gray-400">~<span id="uk-cpm-out">15.6p</span>/mile at 40 MPG</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- REFERENCE TABLE -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b-2 border-gray-200 dark:border-gray-700 text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                            <th class="py-3 px-3">UK Fuel Grade</th>
+                            <th class="py-3 px-3">Pump Price (p/L)</th>
+                            <th class="py-3 px-3">Per Litre (£/L)</th>
+                            <th class="py-3 px-3">Per UK Gallon (4.546 L)</th>
+                            <th class="py-3 px-3">Per US Gallon (3.785 L)</th>
+                            <th class="py-3 px-3">50L Fill-Up Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 dark:divide-gray-800 text-sm">
+                        {ukFuelBenchmarks.map((row) => (
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50">
+                                <td class="py-3.5 px-3 font-bold text-gray-900 dark:text-white">
+                                    <div>{row.grade}</div>
+                                    <span class={`inline-block mt-1 px-2 py-0.5 rounded text-[11px] font-semibold ${row.badgeColor}`}>
+                                        {row.code}
+                                    </span>
+                                </td>
+                                <td class="py-3.5 px-3 font-extrabold text-gray-900 dark:text-white">{row.pencePerLitre}p/L</td>
+                                <td class="py-3.5 px-3 text-gray-700 dark:text-gray-300">{row.poundsPerLitre}/L</td>
+                                <td class="py-3.5 px-3 font-extrabold text-blue-600 dark:text-blue-400">{row.poundsPerUkGallon}/gal</td>
+                                <td class="py-3.5 px-3 text-gray-600 dark:text-gray-400">{row.poundsPerUsGallon}/gal</td>
+                                <td class="py-3.5 px-3 font-bold text-emerald-600 dark:text-emerald-400">{row.tank50L}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mt-4 text-center">
+                *Forecourt prices vary by town, postcode, and retailer. Download the <strong>UK Fuel Prices & Petrol Map</strong> app to see the exact live p/L price at petrol stations near you today.
+            </p>
+        </div>
+    </section>
+
+    <!-- FEATURES GRID (Petrol Map, E10/E5, Route Optimizer) -->
     <section class="py-16 bg-gray-50 dark:bg-gray-900/50 border-y border-gray-200 dark:border-gray-800">
         <div class="max-w-5xl mx-auto px-4">
-            <h2 class="text-3xl font-extrabold text-center text-gray-900 dark:text-white mb-12">
-                Designed to Save You Time & Money
+            <h2 class="text-3xl font-extrabold text-center text-gray-900 dark:text-white mb-4">
+                Interactive UK Petrol Map & Fuel Price Comparison App
             </h2>
+            <p class="text-center text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12">
+                Find the cheapest unleaded petrol and diesel stations across England, Scotland, Wales, and Northern Ireland in real time.
+            </p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {features.map((feature) => (
@@ -127,10 +429,74 @@ const features = [
         </div>
     </section>
 
+    <!-- UK FUEL TYPES (E10 vs E5) & SUPERMARKET LOYALTY DISCOUNTS -->
+    <section class="py-16 px-4 max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <!-- E10 vs E5 & Diesel Guide -->
+            <div class="bg-white dark:bg-gray-900 p-7 rounded-3xl border border-gray-200 dark:border-gray-800 shadow-sm">
+                <h2 class="text-2xl font-extrabold text-gray-900 dark:text-white mb-4">
+                    UK Fuel Types: Unleaded E10 vs Super Unleaded (E5) & Diesel (B7)
+                </h2>
+                <div class="space-y-4 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <div>
+                        <h3 class="font-bold text-gray-900 dark:text-white text-base">• Standard Unleaded (E10 — 95 Octane)</h3>
+                        <p>The standard petrol grade at all UK filling stations since 2021. Contains up to 10% renewable ethanol and is compatible with over 95% of petrol vehicles manufactured after 2011.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-900 dark:text-white text-base">• Where to Get E5 Super Unleaded (97–99 Octane)</h3>
+                        <p>Contains up to 5% ethanol (or 0% ethanol in select areas) with higher octane ratings: <strong>Tesco Momentum 99, Shell V-Power, BP Ultimate Unleaded, and Esso Synergy Supreme+ 99</strong>. Filter the map by <strong>E5</strong> in the app to locate every station currently stocking Super Unleaded near you.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-900 dark:text-white text-base">• Standard Diesel (B7) & Premium Diesel</h3>
+                        <p>Compare standard B7 diesel against high-cetane premium diesel blends across Tesco, Asda, Sainsbury's, Morrisons, Shell, BP, Esso, Jet, Gulf, and Texaco forecourts.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UK Loyalty Cards & Supermarket Discounts -->
+            <div class="bg-white dark:bg-gray-900 p-7 rounded-3xl border border-gray-200 dark:border-gray-800 shadow-sm">
+                <h2 class="text-2xl font-extrabold text-gray-900 dark:text-white mb-4">
+                    UK Supermarket & Fuel Loyalty Card Discounts
+                </h2>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                    Activate your reward cards in 1 tap inside the app to calculate your <strong>net price per litre</strong> directly on the map markers:
+                </p>
+                <div class="space-y-3">
+                    {loyaltySchemes.map((item) => (
+                        <div class="p-3.5 rounded-xl bg-gray-50 dark:bg-gray-800/70 border border-gray-200/70 dark:border-gray-700">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-sm text-gray-900 dark:text-white">{item.scheme}</span>
+                                <span class="text-xs font-extrabold text-emerald-700 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full">
+                                    {item.saving}
+                                </span>
+                            </div>
+                            <p class="text-xs text-gray-600 dark:text-gray-300 mt-1">{item.details}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="py-14 px-4 max-w-4xl mx-auto">
+        <h2 class="text-3xl font-extrabold text-center text-gray-900 dark:text-white mb-10">
+            Frequently Asked Questions About UK Fuel Prices
+        </h2>
+        <div class="space-y-4">
+            {faqs.map((faq) => (
+                <div class="bg-white dark:bg-gray-900 p-6 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">{faq.question}</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{faq.answer}</p>
+                </div>
+            ))}
+        </div>
+    </section>
+
     <!-- LEGAL LINKS FOOTER BAR -->
     <section class="py-12 max-w-3xl mx-auto text-center px-4">
         <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
-            Developed by <strong>El Mate Company</strong>
+            Developed by <strong>El Mate Company</strong> • <a href="/" class="hover:underline">View All Apps</a>
         </p>
         <div class="flex justify-center gap-6 text-sm font-semibold">
             <a href="/ukfuels/terms" class="text-blue-600 dark:text-blue-400 hover:underline">
@@ -142,4 +508,53 @@ const features = [
             </a>
         </div>
     </section>
+
+    <script is:inline>
+        (function () {
+            const UK_GALLON_LITRES = 4.54609;
+            const US_GALLON_LITRES = 3.78541;
+            const input = document.getElementById("uk-ppl-input");
+            const ukGalOut = document.getElementById("uk-gal-out");
+            const ukLitreOut = document.getElementById("uk-litre-out");
+            const ukTankOut = document.getElementById("uk-tank-out");
+            const ukTank55Out = document.getElementById("uk-tank55-out");
+            const usGalOut = document.getElementById("us-gal-out");
+            const ukCpmOut = document.getElementById("uk-cpm-out");
+            const presetBtns = document.querySelectorAll(".uk-preset-btn");
+
+            function updateCalc(pplValue) {
+                const ppl = parseFloat(pplValue);
+                if (isNaN(ppl) || ppl <= 0) return;
+                const poundsPerLitre = ppl / 100;
+                const poundsPerUkGal = poundsPerLitre * UK_GALLON_LITRES;
+                const poundsPerUsGal = poundsPerLitre * US_GALLON_LITRES;
+                const tank50 = poundsPerLitre * 50;
+                const tank55 = poundsPerLitre * 55;
+                const costPerMilePence = (ppl * UK_GALLON_LITRES) / 40;
+
+                if (ukGalOut) ukGalOut.textContent = "£" + poundsPerUkGal.toFixed(2);
+                if (ukLitreOut) ukLitreOut.textContent = "£" + poundsPerLitre.toFixed(2);
+                if (ukTankOut) ukTankOut.textContent = "£" + tank50.toFixed(2);
+                if (ukTank55Out) ukTank55Out.textContent = "£" + tank55.toFixed(2);
+                if (usGalOut) usGalOut.textContent = "£" + poundsPerUsGal.toFixed(2);
+                if (ukCpmOut) ukCpmOut.textContent = costPerMilePence.toFixed(1) + "p";
+            }
+
+            if (input) {
+                input.addEventListener("input", function (e) {
+                    updateCalc(e.target.value);
+                });
+            }
+
+            presetBtns.forEach(function (btn) {
+                btn.addEventListener("click", function () {
+                    const val = btn.getAttribute("data-ppl");
+                    if (val && input) {
+                        input.value = val;
+                        updateCalc(val);
+                    }
+                });
+            });
+        })();
+    </script>
 </Layout>

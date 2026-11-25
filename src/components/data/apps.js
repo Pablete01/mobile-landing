@@ -96,13 +96,13 @@ export const misApps = [
     downloads: "1000+",
     version: "1.0.5",
     releaseDate: "Enero 2025",
-    technologies: ["Kotlin", "Jetpack Compose", "MVVM", "Firebase", "Supabase", "Room", "Dagger Hilt"], 
+    technologies: ["Kotlin", "Compose Multiplatform", "SwiftUI", "MVVM", "Koin", "Supabase", "Room", "Firebase", "AdMob"], 
     screenshots: {
     iphone: [], // Aunque esté vacío, debe ser un array
     ipad: []    // Aunque esté vacío, debe ser un array
   },
     storeLinks: {
-      apple: "",
+      apple: "https://apps.apple.com/cl/app/bencineras-de-chile-precios/id6809481578",
       google: "https://play.google.com/store/apps/details?id=com.app.bencineraschile",
       web: "/bencineraschile"
     }

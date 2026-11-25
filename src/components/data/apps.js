@@ -36,7 +36,8 @@ export const misApps = [
   },
     storeLinks: {
       apple: "https://apps.apple.com/es/app/donde-repostar-gasolineras/id6800650798",
-      google: "https://play.google.com/store/apps/details?id=com.app.donderepostar"
+      google: "https://play.google.com/store/apps/details?id=com.app.donderepostar",
+      web: "/donderepostar"
     }
 },
 
@@ -102,7 +103,8 @@ export const misApps = [
   },
     storeLinks: {
       apple: "",
-      google: "https://play.google.com/store/apps/details?id=com.app.bencineraschile"
+      google: "https://play.google.com/store/apps/details?id=com.app.bencineraschile",
+      web: "/bencineraschile"
     }
 },
 

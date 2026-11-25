@@ -1,0 +1,344 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const appInfo = {
+    name: "Onde Abastecer - Preços de Combustíveis em Portugal",
+    tagline: "Encontre a Gasolina 95, 98, Gasóleo e GPL Auto Mais Baratos Perto de Si",
+    description: "Compare em tempo real os preços dos combustíveis em Portugal com dados oficiais da DGEG e relatos de condutores: Galp, Repsol, BP, Prio, Moeve, Shell, Intermarché, Auchan, Alves Bandeira e Pingo Doce. Aplique os seus cartões de desconto e evite portagens ao planear a sua rota.",
+    logo: "/assets/ondeabastecer/iconoOndeAbastecer.png",
+    keywords: [
+        "onde abastecer",
+        "combustiveis mais baratos portugal",
+        "preco gasolina hoje portugal",
+        "preco gasoleo hoje portugal",
+        "gasolina 95 simples preco",
+        "gasoleo simples mais barato",
+        "mapa postos combustivel portugal",
+        "dgeg combustiveis app",
+        "preco gpl auto portugal",
+        "prio intermarche auchan combustiveis",
+        "descontos galp repsol bp moeve",
+        "poupar combustivel portugal"
+    ],
+    storeLinks: {
+        apple: "https://apps.apple.com/pt/app/onde-abastecer/id6740208073",
+        google: "https://play.google.com/store/apps/details?id=com.app.ondeabastecer"
+    }
+};
+
+const features = [
+    {
+        icon: "⛽",
+        title: "Dados Oficiais DGEG + Comunidade",
+        description: "Preços atualizados para Gasolina 95 Simples e Especial, Gasolina 98 Simples e Especial, Gasóleo Simples, Gasóleo Especial e GPL Auto em todos os distritos de Portugal."
+    },
+    {
+        icon: "💳",
+        title: "Cartões de Desconto e Preço Líquido",
+        description: "Configure os seus cartões e talões de desconto por marca (em cêntimos/L ou percentagem %) e dias da semana ativos, com lembretes automáticos nos dias de poupança."
+    },
+    {
+        icon: "📊",
+        title: "Resumo de Mercado, IA e Rankings",
+        description: "Consulte a tendência das últimas 24 horas (postos que subiram ou baixaram), resumo inteligente de mercado, ranking das marcas mais económicas e média por distrito."
+    },
+    {
+        icon: "🛣️",
+        title: "Planeador de Rotas (Evitar Portagens)",
+        description: "Trace a sua viagem com rotas alternativas e opção de evitar portagens, calculando o custo real de encher o depósito (Gasolina, Gasóleo ou Bi-Fuel Gasolina + GPL)."
+    },
+    {
+        icon: "🔔",
+        title: "Alertas por Tipo de Combustível",
+        description: "Guarde os seus postos favoritos e ative alertas personalizados para receber notificações sempre que o combustível escolhido mudar de preço."
+    },
+    {
+        icon: "🕒",
+        title: "Horários, Serviços e Autoestrada",
+        description: "Veja horários completos (dias úteis, fins de semana e feriados), identificação de autoestrada ou supermercado e serviços como 24h, AdBlue, GPL, lavagem, ar/água e WC."
+    }
+];
+
+const portugalHighlights = [
+    {
+        name: "Galp, Repsol, BP, Prio, Moeve e Shell",
+        badge: "Descontos em cênt./L ou %",
+        details: "Personalize os seus cartões de fidelização, parcerias ou talões por marca e dia da semana para ver o preço final já descontado no mapa."
+    },
+    {
+        name: "Hipermercados e Redes Low Cost",
+        badge: "Comparação direta",
+        details: "Compare numa única vista postos Intermarché, Auchan, Pingo Doce, Leclerc, Recheio, Alves Bandeira e bombas independentes em todo o país."
+    },
+    {
+        name: "Indicador Distrital por Posto",
+        badge: "Mínimo e média distrital",
+        details: "Saiba de imediato quantos cêntimos abaixo ou acima da média do seu distrito está cada combustível, destacando o preço mínimo distrital."
+    },
+    {
+        name: "Depósito Dual (Gasolina + GPL)",
+        badge: "Custo de enchimento",
+        details: "Configure o seu veículo com capacidade de depósito e consumo médio em km/L ou L/100 km para calcular quanto custa atestar em cada posto."
+    }
+];
+
+const brands = [
+    "Galp", "Repsol", "BP", "Prio", "Moeve", "Shell", "Intermarché", "Auchan",
+    "Alves Bandeira", "Pingo Doce", "Leclerc", "Recheio", "Q8", "Oz Energia",
+    "Auto Julio", "Azoria", "Bombagás", "Dourogás", "Gaspe", "Petroibérica",
+    "Rede Energia", "TFuel", "Outras Marcas"
+];
+
+const faqs = [
+    {
+        question: "De onde vêm os preços dos postos no Onde Abastecer?",
+        answer: "A aplicação apresenta dados obtidos a partir de fontes públicas oficiais como a DGEG (Direção-Geral de Energia e Geologia) e marcas de combustível, complementados por atualizações reportadas pelos utilizadores."
+    },
+    {
+        question: "Que tipos de combustível estão disponíveis no mapa?",
+        answer: "Pode filtrar o mapa e as rotas por Gasolina 95 Simples, Gasolina 95 Especial, Gasolina 98 Simples, Gasolina 98 Especial, Gasóleo Simples, Gasóleo Especial e GPL Auto."
+    },
+    {
+        question: "Como funcionam os descontos de cartão em cêntimos ou percentagem?",
+        answer: "Na secção Definições → Descontos, basta criar um cartão escolhendo a marca, se o desconto é em cêntimos por litro (cent.) ou em percentagem (%) e os dias da semana em que está ativo. O mapa recalcula automaticamente o preço final em cada marcador."
+    },
+    {
+        question: "É necessário criar conta para utilizar a aplicação em Portugal?",
+        answer: "Não. Onde Abastecer é gratuito e 100 % anónimo: pode comparar preços, configurar o seu veículo, adicionar descontos, planear rotas evitando portagens e ativar alertas sem registo."
+    }
+];
+
+const structuredData = [
+    {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "Onde Abastecer",
+        "operatingSystem": "iOS, Android",
+        "applicationCategory": "NavigationApplication",
+        "description": appInfo.description,
+        "url": "https://www.elmatecompany.com/ondeabastecer/",
+        "image": "https://www.elmatecompany.com/assets/ondeabastecer/iconoOndeAbastecer.png",
+        "downloadUrl": [appInfo.storeLinks.apple, appInfo.storeLinks.google],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.0",
+            "ratingCount": "11"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        }
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.map((faq) => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+            }
+        }))
+    }
+];
+---
+
+<Layout
+    title="Onde Abastecer | Preços de Gasolina, Gasóleo e GPL Hoje em Portugal (DGEG)"
+    description={appInfo.description}
+    appData={appInfo}
+    lang="pt-PT"
+    keywords={appInfo.keywords}
+    structuredData={structuredData}
+>
+    <!-- HERO SECTION -->
+    <section class="pt-28 pb-14 px-4 max-w-5xl mx-auto text-center">
+        <div class="inline-block mb-5">
+            <img
+                src={appInfo.logo}
+                alt="Onde Abastecer - App de Preços de Combustíveis em Portugal"
+                width="112"
+                height="112"
+                class="w-28 h-28 mx-auto rounded-3xl shadow-xl border-2 border-gray-100 dark:border-gray-800"
+            />
+        </div>
+
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider mb-4">
+            <span>🇵🇹 Dados DGEG Portugal • iOS & Android</span>
+        </div>
+
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-5">
+            Onde Abastecer: <span class="text-emerald-600 dark:text-emerald-400">Combustíveis Mais Baratos em Portugal</span>
+        </h1>
+
+        <p class="text-lg md:text-xl font-semibold text-gray-700 dark:text-gray-200 mb-4 max-w-3xl mx-auto">
+            {appInfo.tagline}
+        </p>
+
+        <p class="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
+            {appInfo.description}
+        </p>
+
+        <!-- DOWNLOAD BUTTONS -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-lg mx-auto mb-8">
+            <a
+                href={appInfo.storeLinks.apple}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full sm:w-auto flex items-center justify-center gap-3 bg-black text-white hover:bg-gray-800 font-bold px-8 py-4 rounded-2xl shadow-lg hover:scale-105 transition-all"
+            >
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.64-.78 1.08-1.86.96-2.95-1 .04-2.13.65-2.78 1.41-.58.67-.99 1.77-.87 2.83 1.12.09 2.05-.51 2.69-1.29z"/>
+                </svg>
+                <div class="text-left">
+                    <div class="text-xs uppercase font-medium">Descarregar na</div>
+                    <div class="text-sm font-bold">App Store (iOS)</div>
+                </div>
+            </a>
+
+            <a
+                href={appInfo.storeLinks.google}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full sm:w-auto flex items-center justify-center gap-3 bg-emerald-600 text-white hover:bg-emerald-700 font-bold px-8 py-4 rounded-2xl shadow-lg hover:scale-105 transition-all"
+            >
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M3.609 1.814L13.792 12 3.61 22.186a1.99 1.99 0 0 1-1.61-1.954V3.768c0-.825.602-1.535 1.609-1.954zm11.605 11.605l2.458 2.458-12.06 6.953 9.602-9.411zm0-2.838L5.612 1.17 17.672 8.12l-2.458 2.461zm1.414 1.419l3.541 2.043c.96.554.96 1.458 0 2.012l-3.541 2.043-2.122-2.123 2.122-2.975z"/>
+                </svg>
+                <div class="text-left">
+                    <div class="text-xs uppercase font-medium">Disponível no</div>
+                    <div class="text-sm font-bold">Google Play</div>
+                </div>
+            </a>
+        </div>
+
+        <!-- DESKTOP QR CODES -->
+        <div class="hidden md:flex items-center justify-center gap-8 max-w-2xl mx-auto p-5 rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-sm">
+            <div class="flex items-center gap-3 text-left">
+                <img
+                    src={`https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(appInfo.storeLinks.apple)}`}
+                    alt="Código QR para descarregar Onde Abastecer na App Store (iOS)"
+                    width="88"
+                    height="88"
+                    loading="lazy"
+                    class="w-22 h-22 rounded-xl border border-gray-200 p-1 bg-white"
+                />
+                <div>
+                    <div class="text-xs font-bold uppercase text-gray-500 dark:text-gray-400">iPhone & iPad</div>
+                    <div class="text-sm font-extrabold text-gray-900 dark:text-white">Ler QR para App Store</div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">Aponte com a câmara do telemóvel</div>
+                </div>
+            </div>
+            <div class="h-14 w-px bg-gray-200 dark:bg-gray-800"></div>
+            <div class="flex items-center gap-3 text-left">
+                <img
+                    src={`https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(appInfo.storeLinks.google)}`}
+                    alt="Código QR para descarregar Onde Abastecer no Google Play"
+                    width="88"
+                    height="88"
+                    loading="lazy"
+                    class="w-22 h-22 rounded-xl border border-gray-200 p-1 bg-white"
+                />
+                <div>
+                    <div class="text-xs font-bold uppercase text-emerald-600 dark:text-emerald-400">Telemóveis Android</div>
+                    <div class="text-sm font-extrabold text-gray-900 dark:text-white">Ler QR para Google Play</div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">Instalação gratuita imediata</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES GRID -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-900/50 border-y border-gray-200 dark:border-gray-800">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-3xl font-extrabold text-center text-gray-900 dark:text-white mb-4">
+                Poupe em Cada Abastecimento de Combustível em Portugal
+            </h2>
+            <p class="text-center text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12">
+                Compare postos de Norte a Sul de Portugal e Ilhas com estatísticas por distrito, descontos aplicados e alertas de preço em tempo real.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {features.map((feature) => (
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-200/80 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="text-4xl mb-4">{feature.icon}</div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{feature.title}</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{feature.description}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- DESCONTOS E REDES PORTUGAL -->
+    <section class="py-16 px-4 max-w-5xl mx-auto">
+        <div class="bg-white dark:bg-gray-900 p-7 md:p-10 rounded-3xl border border-gray-200 dark:border-gray-800 shadow-sm">
+            <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white mb-3 text-center">
+                Preços com Cartões de Desconto, Estatísticas e Marcas em Portugal
+            </h2>
+            <p class="text-sm md:text-base text-gray-600 dark:text-gray-300 text-center max-w-3xl mx-auto mb-8">
+                Combine os preços públicos com os seus cartões ou talões de poupança dentro do Onde Abastecer para ver o valor real por litro diretamente no mapa:
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                {portugalHighlights.map((item) => (
+                    <div class="p-4 rounded-2xl bg-gray-50 dark:bg-gray-800/70 border border-gray-200/70 dark:border-gray-700">
+                        <div class="flex items-center justify-between gap-2 mb-1">
+                            <span class="font-bold text-base text-gray-900 dark:text-white">{item.name}</span>
+                            <span class="text-xs font-extrabold text-emerald-700 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full whitespace-nowrap">
+                                {item.badge}
+                            </span>
+                        </div>
+                        <p class="text-xs text-gray-600 dark:text-gray-300">{item.details}</p>
+                    </div>
+                ))}
+            </div>
+
+            <div class="border-t border-gray-200 dark:border-gray-800 pt-6">
+                <h3 class="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 text-center mb-4">
+                    Principais Bandeiras e Postos Suportados
+                </h3>
+                <div class="flex flex-wrap justify-center gap-2">
+                    {brands.map((brand) => (
+                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200/60 dark:border-gray-700">
+                            {brand}
+                        </span>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="py-14 px-4 max-w-4xl mx-auto">
+        <h2 class="text-3xl font-extrabold text-center text-gray-900 dark:text-white mb-10">
+            Perguntas Frequentes sobre o Onde Abastecer
+        </h2>
+        <div class="space-y-4">
+            {faqs.map((faq) => (
+                <div class="bg-white dark:bg-gray-900 p-6 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">{faq.question}</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{faq.answer}</p>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- FOOTER BAR -->
+    <section class="py-12 max-w-3xl mx-auto text-center px-4">
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+            Desenvolvido por <strong>El Mate Company</strong> • <a href="/" class="hover:underline">Ver todas as aplicações</a>
+        </p>
+        <div class="flex justify-center gap-6 text-sm font-semibold">
+            <a href="/terms" class="text-emerald-600 dark:text-emerald-400 hover:underline">
+                Termos e Condições
+            </a>
+            <span class="text-gray-300 dark:text-gray-600">•</span>
+            <a href="/privacy" class="text-emerald-600 dark:text-emerald-400 hover:underline">
+                Política de Privacidade
+            </a>
+        </div>
+    </section>
+</Layout>

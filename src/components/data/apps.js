@@ -75,14 +75,15 @@ export const misApps = [
     downloads: "1400+",
     version: "2.0.6",
     releaseDate: "Octubre 2025",
-    technologies: ["Kotlin", "SwiftUI", "MVVM", "Supabase", "Room", "Dagger Hilt", "Admob"],
+    technologies: ["Kotlin", "Compose Multiplatform", "SwiftUI", "MVVM", "Koin", "Supabase", "Room", "Firebase", "AdMob"],
     screenshots: {
     iphone: [], // Aunque esté vacío, debe ser un array
     ipad: []    // Aunque esté vacío, debe ser un array
   },
     storeLinks: {
-      apple: "https://apps.apple.com/ar/app/onde-abastecer/id6740208073",
-      google: "https://play.google.com/store/apps/details?id=com.app.ondeabastecer"
+      apple: "https://apps.apple.com/pt/app/onde-abastecer/id6740208073",
+      google: "https://play.google.com/store/apps/details?id=com.app.ondeabastecer",
+      web: "/ondeabastecer"
     }
 },
 

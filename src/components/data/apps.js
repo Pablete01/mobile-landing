@@ -13,7 +13,7 @@ export const misApps = [
     storeLinks: { 
         apple: "https://apps.apple.com/ar/app/id6738704543",
         google: "https://play.google.com/store/apps/details?id=com.app.dondecargar",
-        web: "/dondecargar"
+        web: "https://www.dondecargar.app"
          },
     technologies: ["Kotlin", "Swift", "Jetpack Compose", "SwiftUI", "MVVM", "Dagger Hilt", "Supabase", "Firebase", "Admob"],  },
 
